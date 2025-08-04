@@ -3,11 +3,23 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithCustomToken, signOut, sendPasswordResetEmail } from 'firebase/auth';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Configuration variables provided by the environment
-// These variables are automatically injected by the platform.
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+// IMPORTANT: This is your specific Firebase configuration.
+// It is now hardcoded directly into the app to fix the invalid API key error.
+const firebaseConfig = {
+  apiKey: "AIzaSyBnLpu-HAgIoGJi61UCuREhF4f3yG_nKSQ",
+  authDomain: "doctor-portal-b8c30.firebaseapp.com",
+  projectId: "doctor-portal-b8c30",
+  storageBucket: "doctor-portal-b8c30.firebasestorage.app",
+  messagingSenderId: "415109624546",
+  appId: "1:415109624546:web:11e28f2e2a5fee968424bb",
+  measurementId: "G-3BJ27QL4EY"
+};
+
+// Vercel's injected variables are not used since they were the source of the error.
+// We will still keep the placeholder for the app id for the firestore path.
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+const appId = firebaseConfig.appId || 'default-app-id';
+
 
 // Initialize Firebase App and Services
 const app = initializeApp(firebaseConfig);
