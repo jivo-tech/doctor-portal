@@ -31,13 +31,16 @@ const App = () => {
 
   // Effect to handle initial authentication state and sign-in
   useEffect(() => {
+    console.log("App component loaded. Listening for auth state changes.");
     // Listen for changes in the authentication state
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      console.log("Auth state changed. Current user:", currentUser);
       setUser(currentUser);
       setLoading(false);
       // Attempt to sign in with the custom token if it exists and the user is not authenticated yet.
       if (!currentUser && initialAuthToken) {
         try {
+          console.log("Attempting sign-in with custom token.");
           await signInWithCustomToken(auth, initialAuthToken);
         } catch (e) {
           console.error("Firebase Auth Error with custom token:", e);
@@ -45,12 +48,16 @@ const App = () => {
       }
     });
     // Cleanup the listener when the component unmounts
-    return () => unsubscribe();
+    return () => {
+      console.log("Cleaning up auth state listener.");
+      unsubscribe();
+    };
   }, []);
 
   // Function to handle user sign-up
   const handleSignUp = async (e) => {
     e.preventDefault();
+    console.log("Sign up button clicked.");
     setError('');
     setMessage('');
     try {
@@ -60,7 +67,7 @@ const App = () => {
       setPassword('');
       setView('login');
     } catch (e) {
-      console.error(e);
+      console.error('Sign-up failed:', e);
       setError('Sign-up failed: ' + e.message);
     }
   };
@@ -68,6 +75,7 @@ const App = () => {
   // Function to handle user login
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Log in button clicked.");
     setError('');
     setMessage('');
     try {
@@ -82,7 +90,7 @@ const App = () => {
         window.location.href = NOTION_PAGE_URL;
       }, 1000);
     } catch (e) {
-      console.error(e);
+      console.error('Login failed:', e);
       setError('Login failed: ' + e.message);
     }
   };
@@ -103,12 +111,13 @@ const App = () => {
 
   // Function to handle user sign-out
   const handleSignOut = async () => {
+    console.log("Sign out button clicked.");
     try {
       await signOut(auth);
       setMessage('Signed out successfully.');
       setView('login');
     } catch (e) {
-      console.error(e);
+      console.error('Sign-out failed:', e);
       setError('Sign-out failed: ' + e.message);
     }
   };
@@ -116,6 +125,7 @@ const App = () => {
   // Function to handle password reset request
   const handlePasswordReset = async (e) => {
     e.preventDefault();
+    console.log("Forgot password link clicked. Sending reset email.");
     setError('');
     setMessage('');
     try {
@@ -124,7 +134,7 @@ const App = () => {
       setEmail('');
       setView('login');
     } catch (e) {
-      console.error(e);
+      console.error('Password reset failed:', e);
       setError('Password reset failed: ' + e.message);
     }
   };
