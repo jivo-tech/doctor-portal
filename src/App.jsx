@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithCustomToken, signOut, sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithCustomToken, signOut, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 // IMPORTANT: This is your specific Firebase configuration.
@@ -15,38 +15,32 @@ const firebaseConfig = {
 };
 
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-// FIX: Using the projectId as the appId to ensure the Firestore path is correct.
 const appId = firebaseConfig.projectId;
-
 
 // Initialize Firebase App and Services
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
 
 // The Notion page URL to redirect to.
 const NOTION_PAGE_URL = 'https://www.notion.so/Your-Notion-Page-ID';
 
-// Main App component
 const App = () => {
-  // State variables for form inputs, user, and authentication status
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
-  const [view, setView] = useState('login'); // 'login', 'signup', 'forgotPassword'
+  const [view, setView] = useState('login');
 
-  // Effect to handle initial authentication state and sign-in
   useEffect(() => {
     console.log("App component loaded. Listening for auth state changes.");
-    // Listen for changes in the authentication state
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       console.log("Auth state changed. Current user:", currentUser);
       setUser(currentUser);
       setLoading(false);
-      // Attempt to sign in with the custom token if it exists and the user is not authenticated yet.
       if (!currentUser && initialAuthToken) {
         try {
           console.log("Attempting sign-in with custom token.");
@@ -56,14 +50,12 @@ const App = () => {
         }
       }
     });
-    // Cleanup the listener when the component unmounts
     return () => {
       console.log("Cleaning up auth state listener.");
       unsubscribe();
     };
   }, []);
 
-  // Function to handle user sign-up
   const handleSignUp = async (e) => {
     e.preventDefault();
     console.log("Sign up button clicked.");
@@ -81,7 +73,6 @@ const App = () => {
     }
   };
 
-  // Function to handle user login
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Log in button clicked.");
@@ -89,12 +80,10 @@ const App = () => {
     setMessage('');
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // After a successful login, log the event and then redirect
       if (userCredential.user) {
         await logUserLogin(userCredential.user.uid);
       }
       setMessage('Login successful! Redirecting...');
-      // Use setTimeout to give a moment for the message to display before redirecting
       setTimeout(() => {
         window.location.href = NOTION_PAGE_URL;
       }, 1000);
@@ -104,13 +93,32 @@ const App = () => {
     }
   };
 
-  // Function to log the user login event in Firestore
+  const handleGoogleLogin = async () => {
+    console.log("Google login button clicked.");
+    setError('');
+    setMessage('');
+    try {
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      if (userCredential.user) {
+        await logUserLogin(userCredential.user.uid);
+      }
+      setMessage('Login successful! Redirecting...');
+      setTimeout(() => {
+        window.location.href = NOTION_PAGE_URL;
+      }, 1000);
+    } catch (e) {
+      console.error('Google login failed:', e);
+      setError('Google login failed: ' + e.message);
+    }
+  };
+
   const logUserLogin = async (userId) => {
     try {
       const loginCollectionPath = `/artifacts/${appId}/public/data/user_logins`;
       await addDoc(collection(db, loginCollectionPath), {
         userId: userId,
         timestamp: serverTimestamp(),
+        provider: 'Google' // Add provider for tracking
       });
       console.log("Login event successfully logged to Firestore.");
     } catch (e) {
@@ -118,7 +126,6 @@ const App = () => {
     }
   };
 
-  // Function to handle user sign-out
   const handleSignOut = async () => {
     console.log("Sign out button clicked.");
     try {
@@ -131,7 +138,6 @@ const App = () => {
     }
   };
 
-  // Function to handle password reset request
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     console.log("Forgot password link clicked. Sending reset email.");
@@ -148,7 +154,6 @@ const App = () => {
     }
   };
 
-  // If the authentication state is still loading, display a loading message
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -157,7 +162,6 @@ const App = () => {
     );
   }
 
-  // Render the appropriate view based on the current state
   const renderView = () => {
     if (user) {
       return (
@@ -303,7 +307,20 @@ const App = () => {
             <div className="my-6 text-center text-gray-500">
               <p>— OR —</p>
             </div>
-            <p className="text-center">
+            <button
+                onClick={handleGoogleLogin}
+                className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.48 2.56 13.56l7.92 6.16C12.44 14.75 17.06 9.5 24 9.5z"></path>
+                  <path fill="#34A853" d="M46.74 24c0-1.28-.11-2.55-.3-3.77H24v7.54h12.16c-.47 2.64-2.07 4.97-4.43 6.55l7.92 6.16c4.56-4.24 7.23-10.43 7.23-17.77z"></path>
+                  <path fill="#FBBC04" d="M10.45 33.72l6.16-7.92c-.88-2.6-.88-5.38 0-7.98l-6.16-7.92c-4.04 8.08-4.04 17.68 0 25.82z"></path>
+                  <path fill="#EA4335" d="M24 38.07c-3.66 0-7.05-1.19-9.96-3.21l-7.92 6.16c5.58 4.7 12.83 7.55 20.88 7.55 10.95 0 18.73-6.1 22.19-14.93l-7.23-5.63c-2.36 1.77-5.32 2.87-8.88 2.87z"></path>
+                  <path d="M0 0h48v48H0z" fill="none"></path>
+                </svg>
+                Sign in with Google
+              </button>
+            <p className="text-center mt-4">
               Don't have an account?{' '}
               <button onClick={() => setView('signup')} className="text-green-500 hover:underline">
                 Sign Up
