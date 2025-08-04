@@ -311,13 +311,7 @@ const App = () => {
                 onClick={handleGoogleLogin}
                 className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
               >
-                <svg className="w-5 h-5 mr-2" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.48 2.56 13.56l7.92 6.16C12.44 14.75 17.06 9.5 24 9.5z"></path>
-                  <path fill="#34A853" d="M46.74 24c0-1.28-.11-2.55-.3-3.77H24v7.54h12.16c-.47 2.64-2.07 4.97-4.43 6.55l7.92 6.16c4.56-4.24 7.23-10.43 7.23-17.77z"></path>
-                  <path fill="#FBBC04" d="M10.45 33.72l6.16-7.92c-.88-2.6-.88-5.38 0-7.98l-6.16-7.92c-4.04 8.08-4.04 17.68 0 25.82z"></path>
-                  <path fill="#EA4335" d="M24 38.07c-3.66 0-7.05-1.19-9.96-3.21l-7.92 6.16c5.58 4.7 12.83 7.55 20.88 7.55 10.95 0 18.73-6.1 22.19-14.93l-7.23-5.63c-2.36 1.77-5.32 2.87-8.88 2.87z"></path>
-                  <path d="M0 0h48v48H0z" fill="none"></path>
-                </svg>
+                <img src="https://i.ibb.co/1YbkcNMH/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" className="w-5 h-5 mr-2" />
                 Sign in with Google
               </button>
             <p className="text-center mt-4">
