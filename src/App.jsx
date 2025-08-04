@@ -4,7 +4,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 // IMPORTANT: This is your specific Firebase configuration.
-// It is now hardcoded directly into the app to fix the invalid API key error.
 const firebaseConfig = {
   apiKey: "AIzaSyBnLpu-HAgIoGJi61UCuREhF4f3yG_nKSQ",
   authDomain: "doctor-portal-b8c30.firebaseapp.com",
@@ -15,10 +14,9 @@ const firebaseConfig = {
   measurementId: "G-3BJ27QL4EY"
 };
 
-// Vercel's injected variables are not used since they were the source of the error.
-// We will still keep the placeholder for the app id for the firestore path.
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-const appId = firebaseConfig.appId || 'default-app-id';
+// FIX: Using the projectId as the appId to ensure the Firestore path is correct.
+const appId = firebaseConfig.projectId;
 
 
 // Initialize Firebase App and Services
@@ -27,7 +25,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // The Notion page URL to redirect to.
-// IMPORTANT: Replace this with your Notion page link.
 const NOTION_PAGE_URL = 'https://www.notion.so/Your-Notion-Page-ID';
 
 // Main App component
