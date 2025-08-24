@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'jivo-blue': '#3751FE',
+        'jivo-blue-dark': '#001299',
+        'jivo-yellow': '#FFCD3F',
+      },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
