@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithCustomToken, signOut, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import NotionPage from './NotionPage'; // Import the NotionPage component
 
 // IMPORTANT: This is your specific Firebase configuration.
 const firebaseConfig = {
@@ -23,9 +24,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
-// The Notion page URL to redirect to.
-const NOTION_PAGE_URL = 'https://www.notion.so/Your-Notion-Page-ID';
-
 const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,29 +34,23 @@ const App = () => {
   const [view, setView] = useState('login');
 
   useEffect(() => {
-    console.log("App component loaded. Listening for auth state changes.");
+    // This listener handles auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      console.log("Auth state changed. Current user:", currentUser);
       setUser(currentUser);
       setLoading(false);
       if (!currentUser && initialAuthToken) {
         try {
-          console.log("Attempting sign-in with custom token.");
           await signInWithCustomToken(auth, initialAuthToken);
         } catch (e) {
           console.error("Firebase Auth Error with custom token:", e);
         }
       }
     });
-    return () => {
-      console.log("Cleaning up auth state listener.");
-      unsubscribe();
-    };
+    return () => unsubscribe(); // Cleanup the listener
   }, []);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log("Sign up button clicked.");
     setError('');
     setMessage('');
     try {
@@ -68,14 +60,12 @@ const App = () => {
       setPassword('');
       setView('login');
     } catch (e) {
-      console.error('Sign-up failed:', e);
       setError('Sign-up failed: ' + e.message);
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Log in button clicked.");
     setError('');
     setMessage('');
     try {
@@ -83,18 +73,13 @@ const App = () => {
       if (userCredential.user) {
         await logUserLogin(userCredential.user.uid);
       }
-      setMessage('Login successful! Redirecting...');
-      setTimeout(() => {
-        window.location.href = NOTION_PAGE_URL;
-      }, 1000);
+      // No redirection needed. The onAuthStateChanged listener will handle the UI update.
     } catch (e) {
-      console.error('Login failed:', e);
       setError('Login failed: ' + e.message);
     }
   };
 
   const handleGoogleLogin = async () => {
-    console.log("Google login button clicked.");
     setError('');
     setMessage('');
     try {
@@ -102,12 +87,8 @@ const App = () => {
       if (userCredential.user) {
         await logUserLogin(userCredential.user.uid);
       }
-      setMessage('Login successful! Redirecting...');
-      setTimeout(() => {
-        window.location.href = NOTION_PAGE_URL;
-      }, 1000);
+       // No redirection needed. The onAuthStateChanged listener will handle the UI update.
     } catch (e) {
-      console.error('Google login failed:', e);
       setError('Google login failed: ' + e.message);
     }
   };
@@ -118,29 +99,23 @@ const App = () => {
       await addDoc(collection(db, loginCollectionPath), {
         userId: userId,
         timestamp: serverTimestamp(),
-        provider: 'Google' // Add provider for tracking
+        provider: 'Google' // This should be dynamic based on login method
       });
-      console.log("Login event successfully logged to Firestore.");
     } catch (e) {
       console.error("Error writing login event to Firestore:", e);
     }
   };
 
   const handleSignOut = async () => {
-    console.log("Sign out button clicked.");
     try {
       await signOut(auth);
-      setMessage('Signed out successfully.');
-      setView('login');
     } catch (e) {
-      console.error('Sign-out failed:', e);
       setError('Sign-out failed: ' + e.message);
     }
   };
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
-    console.log("Forgot password link clicked. Sending reset email.");
     setError('');
     setMessage('');
     try {
@@ -149,7 +124,6 @@ const App = () => {
       setEmail('');
       setView('login');
     } catch (e) {
-      console.error('Password reset failed:', e);
       setError('Password reset failed: ' + e.message);
     }
   };
@@ -162,24 +136,13 @@ const App = () => {
     );
   }
 
-  const renderView = () => {
-    if (user) {
-      return (
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">You are logged in!</h2>
-          <p className="text-gray-700 mb-6">
-            You will be redirected to the Notion page automatically upon successful login.
-          </p>
-          <button
-            onClick={handleSignOut}
-            className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Sign Out
-          </button>
-        </div>
-      );
-    }
+  // If a user is logged in, render the NotionPage component
+  if (user) {
+    return <NotionPage onSignOut={handleSignOut} />;
+  }
 
+  // --- Login / Signup Forms ---
+  const renderForms = () => {
     switch (view) {
       case 'signup':
         return (
@@ -325,6 +288,7 @@ const App = () => {
     }
   };
 
+  // Render the authentication forms if no user is logged in
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 font-inter text-gray-800">
       <div className="text-center mb-8">
@@ -333,14 +297,6 @@ const App = () => {
           Sign up or log in to access the exclusive content.
         </p>
       </div>
-
-      {user && (
-        <div className="bg-gray-200 p-3 rounded-lg mb-4 text-sm text-gray-700">
-          <p className="font-semibold">Your User ID (for tracking):</p>
-          <p className="break-all">{user.uid}</p>
-        </div>
-      )}
-
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         {error && (
           <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded-md" role="alert">
@@ -354,7 +310,7 @@ const App = () => {
             <p>{message}</p>
           </div>
         )}
-        {renderView()}
+        {renderForms()}
       </div>
     </div>
   );
