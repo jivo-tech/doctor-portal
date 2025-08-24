@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithCustomToken, signOut, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import NotionPage from './NotionPage'; // Import the NotionPage component
+import { getFirestore, collection, addDoc, serverTimestamp, setDoc, doc } from 'firebase/firestore'; // Import setDoc and doc
+import NotionPage from './NotionPage';
 
-// IMPORTANT: This is your specific Firebase configuration.
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBnLpu-HAgIoGJi61UCuREhF4f3yG_nKSQ",
   authDomain: "doctor-portal-b8c30.firebaseapp.com",
@@ -18,13 +18,14 @@ const firebaseConfig = {
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 const appId = firebaseConfig.projectId;
 
-// Initialize Firebase App and Services
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 const App = () => {
+  const [name, setName] = useState(''); // State for the user's full name
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
@@ -34,7 +35,6 @@ const App = () => {
   const [view, setView] = useState('login');
 
   useEffect(() => {
-    // This listener handles auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -46,16 +46,38 @@ const App = () => {
         }
       }
     });
-    return () => unsubscribe(); // Cleanup the listener
+    return () => unsubscribe();
   }, []);
+
+  // --- NEW: Function to save user data to Firestore ---
+  const createUserProfile = async (user, provider) => {
+    const userRef = doc(db, `/artifacts/${appId}/public/data/users/${user.uid}`);
+    const userData = {
+      uid: user.uid,
+      name: provider === 'Google' ? user.displayName : name,
+      email: user.email,
+      createdAt: serverTimestamp(),
+    };
+    try {
+      await setDoc(userRef, userData, { merge: true }); // Use merge: true to avoid overwriting
+      console.log("User profile created/updated successfully.");
+    } catch (e) {
+      console.error("Error creating user profile:", e);
+    }
+  };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError('');
     setMessage('');
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // --- NEW: Create a user profile document after sign-up ---
+      if (userCredential.user) {
+        await createUserProfile(userCredential.user, 'email');
+      }
       setMessage('Sign-up successful! You can now log in.');
+      setName('');
       setEmail('');
       setPassword('');
       setView('login');
@@ -71,9 +93,8 @@ const App = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       if (userCredential.user) {
-        await logUserLogin(userCredential.user.uid);
+        await logUserLogin(userCredential.user.uid, 'email');
       }
-      // No redirection needed. The onAuthStateChanged listener will handle the UI update.
     } catch (e) {
       setError('Login failed: ' + e.message);
     }
@@ -85,21 +106,22 @@ const App = () => {
     try {
       const userCredential = await signInWithPopup(auth, googleProvider);
       if (userCredential.user) {
-        await logUserLogin(userCredential.user.uid);
+        await logUserLogin(userCredential.user.uid, 'Google');
+        // --- NEW: Create a user profile if they sign in with Google for the first time ---
+        await createUserProfile(userCredential.user, 'Google');
       }
-       // No redirection needed. The onAuthStateChanged listener will handle the UI update.
     } catch (e) {
       setError('Google login failed: ' + e.message);
     }
   };
 
-  const logUserLogin = async (userId) => {
+  const logUserLogin = async (userId, provider) => {
     try {
       const loginCollectionPath = `/artifacts/${appId}/public/data/user_logins`;
       await addDoc(collection(db, loginCollectionPath), {
         userId: userId,
         timestamp: serverTimestamp(),
-        provider: 'Google' // This should be dynamic based on login method
+        provider: provider
       });
     } catch (e) {
       console.error("Error writing login event to Firestore:", e);
@@ -136,13 +158,10 @@ const App = () => {
     );
   }
 
-  // If a user is logged in, render the NotionPage component
   if (user) {
     return <NotionPage onSignOut={handleSignOut} />;
   }
 
-  // --- Login / Signup Forms ---
-  // --- Login / Signup Forms ---
   const renderForms = () => {
     switch (view) {
       case 'signup':
@@ -150,6 +169,14 @@ const App = () => {
           <div>
             <h2 className="text-2xl font-bold mb-6 text-center text-jivo-blue-dark">Sign Up</h2>
             <form onSubmit={handleSignUp} className="space-y-4">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Full Name"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
               <input
                 type="email"
                 value={email}
@@ -263,7 +290,6 @@ const App = () => {
     }
   };
 
-  // Render the authentication forms if no user is logged in
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 font-inter text-gray-800">
       <div className="text-center mb-8">
@@ -275,7 +301,6 @@ const App = () => {
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         {error && (
           <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded-md" role="alert">
-            {/* I removed the "Error" and "Success" bold text for a cleaner look */}
             <p>{error}</p>
           </div>
         )}
