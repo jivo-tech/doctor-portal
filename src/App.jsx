@@ -142,49 +142,40 @@ const App = () => {
   }
 
   // --- Login / Signup Forms ---
+  // --- Login / Signup Forms ---
   const renderForms = () => {
     switch (view) {
       case 'signup':
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center text-jivo-blue-dark">Sign Up</h2>
             <form onSubmit={handleSignUp} className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1" htmlFor="signup-email">
-                  Email
-                </label>
-                <input
-                  id="signup-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1" htmlFor="signup-password">
-                  Password
-                </label>
-                <input
-                  id="signup-password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
               <button
                 type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-jivo-blue hover:bg-jivo-blue-dark text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
               >
                 Sign Up
               </button>
             </form>
             <p className="text-center mt-4">
               Already have an account?{' '}
-              <button onClick={() => setView('login')} className="text-blue-500 hover:underline">
+              <button onClick={() => setView('login')} className="text-jivo-blue hover:underline">
                 Log In
               </button>
             </p>
@@ -193,31 +184,25 @@ const App = () => {
       case 'forgotPassword':
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Forgot Password</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center text-jivo-blue-dark">Forgot Password</h2>
             <form onSubmit={handlePasswordReset} className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1" htmlFor="forgot-email">
-                  Email
-                </label>
-                <input
-                  id="forgot-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
               <button
                 type="submit"
-                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-jivo-yellow hover:opacity-90 text-jivo-blue-dark font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
               >
                 Send Reset Email
               </button>
             </form>
             <p className="text-center mt-4">
-              Remembered your password?{' '}
-              <button onClick={() => setView('login')} className="text-blue-500 hover:underline">
+              <button onClick={() => setView('login')} className="text-jivo-blue hover:underline">
                 Back to Login
               </button>
             </p>
@@ -227,43 +212,33 @@ const App = () => {
       default:
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Log In</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center text-jivo-blue-dark">Log In</h2>
             <form onSubmit={handleLogin} className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1" htmlFor="login-email">
-                  Email
-                </label>
-                <input
-                  id="login-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1" htmlFor="login-password">
-                  Password
-                </label>
-                <input
-                  id="login-password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-jivo-blue transition"
+                required
+              />
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-jivo-blue hover:bg-jivo-blue-dark text-white font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg"
               >
                 Log In
               </button>
             </form>
             <p className="text-center mt-4">
-              <button onClick={() => setView('forgotPassword')} className="text-blue-500 hover:underline">
+              <button onClick={() => setView('forgotPassword')} className="text-jivo-blue hover:underline">
                 Forgot Password?
               </button>
             </p>
@@ -279,7 +254,7 @@ const App = () => {
               </button>
             <p className="text-center mt-4">
               Don't have an account?{' '}
-              <button onClick={() => setView('signup')} className="text-green-500 hover:underline">
+              <button onClick={() => setView('signup')} className="text-jivo-blue hover:underline">
                 Sign Up
               </button>
             </p>
@@ -292,21 +267,20 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 font-inter text-gray-800">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-blue-600 mb-2">Welcome!</h1>
+        <h1 className="text-4xl font-bold text-jivo-blue mb-2">Jivo Doctor Partner Hub</h1>
         <p className="text-lg text-gray-600">
-          Sign up or log in to access the exclusive content.
+          Please sign in to continue
         </p>
       </div>
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         {error && (
           <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded-md" role="alert">
-            <p className="font-bold">Error</p>
+            {/* I removed the "Error" and "Success" bold text for a cleaner look */}
             <p>{error}</p>
           </div>
         )}
         {message && (
           <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded-md" role="alert">
-            <p className="font-bold">Success</p>
             <p>{message}</p>
           </div>
         )}
