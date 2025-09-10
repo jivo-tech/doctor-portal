@@ -1,0 +1,53 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>JDP Role</title><style>
+/* Base styles from your other pages */
+html { -webkit-print-color-adjust: exact; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+/* Make html and body take full height */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    white-space: pre-wrap;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* The main article container */
+.page.sans {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically (header, then iframe) */
+    height: 100%; /* Make the article fill the body */
+    margin: 0 auto; /* Center the article horizontally */
+    max-width: 900px;
+    color: rgb(55, 53, 47);
+    padding: 2em; /* Use padding instead of margin on the body */
+}
+
+h1.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75em;
+    flex-shrink: 0; /* Prevent the header from shrinking */
+}
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.iframe-container {
+    width: 100%;
+    border: none;
+    flex-grow: 1; /* This is the key: makes the iframe fill all remaining vertical space */
+}
+</style></head><body><article class="page sans">
+    <header><h1 class="page-title">Jivo Doctor Partner (JDP) Role</h1></header>
+
+    <!-- Google Doc Embed -->
+    <iframe
+      class="iframe-container"
+      src="https://docs.google.com/document/d/e/2PACX-1vQBg7Sh8kWOg9FGWiYp5vWpTZgAsCo0Px-bQfR3VnlZY5SoTfe7d0mKPhR10Gs86_KXJxyssDDfKE57/pub?embedded=true">
+    </iframe>
+
+</article></body></html>
+
