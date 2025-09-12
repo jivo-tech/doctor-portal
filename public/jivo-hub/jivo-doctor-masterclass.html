@@ -11,27 +11,40 @@ a, a.visited { color: #3751FE; text-decoration: none; font-weight: 600; }
 a:hover { text-decoration: underline; }
 h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.2; font-weight: 700; margin-bottom: 0; }
 .page-title { font-size: 2.5rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75em; }
-h2 { font-size: 1.75rem; margin-top: 2em; border-bottom: 2px solid #eee; padding-bottom: 0.3em; margin-bottom: 1em;}
+h2 { font-size: 1.75rem; margin-top: 1.5em; border-bottom: 2px solid #eee; padding-bottom: 0.3em; margin-bottom: 1em;} /* Reduced margin-top */
 h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5em; font-weight: 700; }
 p { margin-top: 0.5em; margin-bottom: 0.5em; }
 strong { font-weight: bold; }
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.intro-box { background: rgba(231, 243, 248, 1); padding: 1.5em; border-radius: 8px; margin-bottom: 2em; }
+
+.cover-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+}
+
+.intro-box { background: rgba(231, 243, 248, 1); padding: 1.5em; border-radius: 8px; margin-bottom: 1.5em; } /* Reduced margin-bottom */
 .masterclass-entry { margin-bottom: 2em; padding-bottom: 1.5em; border-bottom: 1px solid #ddd; }
 .details-table { margin-top: 1em; width: 100%; border-collapse: collapse; }
 .details-table td { padding: 0.5em; border: 1px solid #eee; }
 .details-table td:first-child { font-weight: 600; width: 30%; }
 .button { display: inline-block; background-color: #3751FE; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 1em; }
 .button:hover { background-color: #001299; text-decoration: none; color: white; }
+.button-container { text-align: center; } 
 </style></head><body><article class="page sans">
-    <header><h1 class="page-title">Jivo Doctor Masterclass</h1></header>
+    <header>
+        <img src="/jivo-hub/remuneration-structure.webp" alt="Jivo Doctor Masterclass Banner" class="cover-image"/>
+        <h1 class="page-title">Jivo Doctor Masterclass</h1>
+    </header>
     <div class="page-body">
         
         <div class="intro-box">
             <p>A collaborative initiative by Jivo and India’s top hospitals — powered by leading specialists, curated for Africa’s rising clinical leaders.</p>
         </div>
 
-        <a href="https://luma.com/jivodoctormasterclass?k=c&period=past" target="_blank" rel="noopener noreferrer" class="button">View Full Calendar & Register</a>
+        <div class="button-container">
+            <a href="https://luma.com/jivodoctormasterclass?k=c&period=past" target="_blank" rel="noopener noreferrer" class="button">View Full Calendar & Register</a>
+        </div>
 
         <h2>Past Masterclasses Log</h2>
 
@@ -42,7 +55,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>7 September 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1eIA9lQtI1QEp8J86RCMphgGYbT8x7GTX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1eIA9lQtI1QEp8J86RCMphgGYbT8x7GTX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -52,7 +67,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>31 August 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1L7i0GTYqR7cpe2X0dO7FMq28S7ohdfqW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1L7i0GTYqR7cpe2X0dO7FMq28S7ohdfqW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
         
         <div class="masterclass-entry">
@@ -62,7 +79,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>24 August 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1PnDGGdqLMHUWZ2kl5HsRllF96WdWuqNT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1PnDGGdqLMHUWZ2kl5HsRllF96WdWuqNT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -72,7 +91,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis La Femme Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>17 August 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1fbXnNOrG7PoVTeznhJia4G1yej43PmMf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1fbXnNOrG7PoVTeznhJia4G1yej43PmMf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -82,7 +103,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>10 August 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1b1Whh9JMEA6_ywXZhBvpD4cS0e7PMa0R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1b1Whh9JMEA6_ywXZhBvpD4cS0e7PMa0R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -92,7 +115,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>27 July 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1B-GX-uwV5sGFyMdUhz1xjDExHbFgO-Ui/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1B-GX-uwV5sGFyMdUhz1xjDExHbFgO-Ui/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -102,7 +127,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Shalby Sanar International Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>20 July 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1-70JP4QGylYzkKwANmyAaOjTwrX4h7-8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1-70JP4QGylYzkKwANmyAaOjTwrX4h7-8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -112,7 +139,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>13 July 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1ylvxW0HV5tAsRYJZ8Hk3aDXeHh2UlSx6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1ylvxW0HV5tAsRYJZ8Hk3aDXeHh2UlSx6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -122,7 +151,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>6 July 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1Jltrn-44x265fqjCBQIE2hXClN-d8SPg/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1Jltrn-44x265fqjCBQIE2hXClN-d8SPg/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -132,7 +163,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Super Speciality Hospital, Noida</td></tr>
                 <tr><td>Date</td><td>29 June 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1wiVSmoYA4GJ9OIAqytVqYsrtEgdu6sZH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1wiVSmoYA4GJ9OIAqytVqYsrtEgdu6sZH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -142,7 +175,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Escorts Hospital New Delhi</td></tr>
                 <tr><td>Date</td><td>22 June 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1KMjZPRDA0Rb1SO_T-9dUgQa7unLDZbtE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1KMjZPRDA0Rb1SO_T-9dUgQa7unLDZbtE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -152,7 +187,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Hospital Gurgaon</td></tr>
                 <tr><td>Date</td><td>15 June 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1hcAFJdfneK_95QKQVKgYFUW01pHCD5XO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1hcAFJdfneK_95QKQVKgYFUW01pHCD5XO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -162,7 +199,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>8 June 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/13Ch8aLw7524Dr25xxziBb-pAkwWYOaOX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/13Ch8aLw7524Dr25xxziBb-pAkwWYOaOX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -172,7 +211,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Hospital Gurgaon</td></tr>
                 <tr><td>Date</td><td>1 June 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1C0LjTTedKbjlLN0GXsOc0aXa7bg9vy3C/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1C0LjTTedKbjlLN0GXsOc0aXa7bg9vy3C/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -182,7 +223,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
                 <tr><td>Date</td><td>11 May 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1CMJ-34BjC31RiKLZRnIfOqzinNhquqUc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1CMJ-34BjC31RiKLZRnIfOqzinNhquqUc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -192,7 +235,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>4 May 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1RFOb5W1uQdVPYaCFo_1JKRiUperHua3_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1RFOb5W1uQdVPYaCFo_1JKRiUperHua3_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -202,7 +247,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>27 April 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1kibi8NyO9KoB4lLAg4CTVdEevhWAKrrZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1kibi8NyO9KoB4lLAg4CTVdEevhWAKrrZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -212,7 +259,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>20 April 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1OIzL0zLLB4qAkDp_e_eCaldW5811SCvb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1OIzL0zLLB4qAkDp_e_eCaldW5811SCvb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -222,7 +271,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
                 <tr><td>Date</td><td>13 April 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1egaqC8ZZpd9yn_Y7pcofJOZ-CFl8uZZt/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1egaqC8ZZpd9yn_Y7pcofJOZ-CFl8uZZt/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -232,7 +283,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>6 April 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1qAaN3BZPnxUZQjvkhBQSCe8LpYHAv8NM/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1qAaN3BZPnxUZQjvkhBQSCe8LpYHAv8NM/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -242,7 +295,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
                 <tr><td>Date</td><td>30 March 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1NJxqamTahJMYY7-AV52jBN9h9Z_HDS1R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1NJxqamTahJMYY7-AV52jBN9h9Z_HDS1R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -252,7 +307,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>23 March 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1nPSwqWc0SaCWS2A0-fES29PFCRRzyhj1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1nPSwqWc0SaCWS2A0-fES29PFCRRzyhj1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -262,7 +319,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>16 March 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1DNlGlLNBGsa-pGvLMyNAUUjRWiXGJGQV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1DNlGlLNBGsa-pGvLMyNAUUjRWiXGJGQV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -272,7 +331,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>9 March 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1Wmq_O70BS4dqaMUJaqZGOkOU2GuceXK_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1Wmq_O70BS4dqaMUJaqZGOkOU2GuceXK_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -282,7 +343,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>2 March 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1TEtR-mmqwySIwhJJtelup3X3xg1N5c-a/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1TEtR-mmqwySIwhJJtelup3X3xg1N5c-a/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -292,7 +355,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis La Femme Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>23 February 2025</td></tr>
             </tbody></table>
-            <a href="https://docs.google.com/presentation/d/1HoRx7PJWR3tjHsSIg9LqwO3ep4QUDcIw/edit?usp=sharing&ouid=106949530277448701890&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            <div class="button-container">
+                <a href="https://docs.google.com/presentation/d/1HoRx7PJWR3tjHsSIg9LqwO3ep4QUDcIw/edit?usp=sharing&ouid=106949530277448701890&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -302,7 +367,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>16 February 2025</td></tr>
             </tbody></table>
-            <a href="https://docs.google.com/presentation/d/1Apvk_LPNldv7QtoAtRJ9ykhCVAfAEu2Zf-jNzbCRK7U/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            <div class="button-container">
+                <a href="https://docs.google.com/presentation/d/1Apvk_LPNldv7QtoAtRJ9ykhCVAfAEu2Zf-jNzbCRK7U/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -312,7 +379,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
                 <tr><td>Date</td><td>9 February 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1fNrhe5VWKUmOrTs0URh03e2far3l6913/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1fNrhe5VWKUmOrTs0URh03e2far3l6913/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -322,7 +391,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>2 February 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1C-s-5NdbFhyWNGe4SAP7u1iuQGw-UTaY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1C-s-5NdbFhyWNGe4SAP7u1iuQGw-UTaY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -332,7 +403,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Manipal Hospitals, New Delhi</td></tr>
                 <tr><td>Date</td><td>26 January 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1fT-ucV_wxsPTXHTpPfaaNPoBkv7Lu02I/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1fT-ucV_wxsPTXHTpPfaaNPoBkv7Lu02I/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -342,7 +415,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
                 <tr><td>Date</td><td>19 January 2025</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/15Uqyd4JSVrsmEzV4hJNbrLUb2LJolDRx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/15Uqyd4JSVrsmEzV4hJNbrLUb2LJolDRx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -352,7 +427,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
                 <tr><td>Date</td><td>1 December 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1HxNeebXaO05p1F0JltYLGQg2KZy273tZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1HxNeebXaO05p1F0JltYLGQg2KZy273tZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -362,7 +439,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>24 November 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1tmW-Lkzia3-ztppor0G6b5eVy2KPpb0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1tmW-Lkzia3-ztppor0G6b5eVy2KPpb0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -372,7 +451,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
                 <tr><td>Date</td><td>17 November 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1a1A4vc0hAVX6ReEtfMUG1nMnHybiMcKe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1a1A4vc0hAVX6ReEtfMUG1nMnHybiMcKe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -382,7 +463,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>10 November 2024</td></tr>
             </tbody></table>
-            <a href="https://docs.google.com/presentation/d/1S16wSv377h886sczu-BERo-h4L4eEZgjbACsA2GMCnI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            <div class="button-container">
+                <a href="https://docs.google.com/presentation/d/1S16wSv377h886sczu-BERo-h4L4eEZgjbACsA2GMCnI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -392,7 +475,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>27 October 2024</td></tr>
             </tbody></table>
-            <a href="https://docs.google.com/presentation/d/1m-Z8jsnXFIa2Yrvjk2KoSuV4Wc18rCq6FiKdEtsw5Wk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            <div class="button-container">
+                <a href="https://docs.google.com/presentation/d/1m-Z8jsnXFIa2Yrvjk2KoSuV4Wc18rCq6FiKdEtsw5Wk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -402,7 +487,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
                 <tr><td>Date</td><td>20 October 2024</td></tr>
             </tbody></table>
-            <a href="https://docs.google.com/presentation/d/1dSs2Co7hhdgHj6_8r5s8WptujWOAk4L9w5t-V_HsI0I/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            <div class="button-container">
+                <a href="https://docs.google.com/presentation/d/1dSs2Co7hhdgHj6_8r5s8WptujWOAk4L9w5t-V_HsI0I/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -412,7 +499,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>15 September 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1O_8pE7gxAKxrMHG6yo2AoHFpM7xzk2rP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1O_8pE7gxAKxrMHG6yo2AoHFpM7xzk2rP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -422,7 +511,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Manipal Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>1 September 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/17u8EKOvw_6_8XfMqC4uh5dhBXP4CHrAA/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/17u8EKOvw_6_8XfMqC4uh5dhBXP4CHrAA/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -432,7 +523,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>25 August 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1U09LqaWQVSvDF5P0IrN9LBVbIInM2Ej8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1U09LqaWQVSvDF5P0IrN9LBVbIInM2Ej8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -442,7 +535,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>18 August 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1nDOs5wLiDakHiYKzqzdOMa7yYK7gQuRs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1nDOs5wLiDakHiYKzqzdOMa7yYK7gQuRs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -452,7 +547,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>11 August 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1WzkEYM6jmM73buzqjMMOh222TalAgZit/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1WzkEYM6jmM73buzqjMMOh222TalAgZit/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -462,7 +559,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
                 <tr><td>Date</td><td>4 August 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1YtmOnqKzDyMbjDTZOOzM92y4rkJVoGf8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1YtmOnqKzDyMbjDTZOOzM92y4rkJVoGf8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -472,7 +571,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
                 <tr><td>Date</td><td>28 July 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1eOaVlrb5UX9zvQEVDViRgEZNwY5yFD0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1eOaVlrb5UX9zvQEVDViRgEZNwY5yFD0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -482,7 +583,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>21 July 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1iEIxZHB4fU0DC3LdNvqEmn7slD5Ugwv4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1iEIxZHB4fU0DC3LdNvqEmn7slD5Ugwv4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -492,7 +595,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>14 July 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1IJcDUMifkLpsD4Hs3x_VPzPOPHm2ND80/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1IJcDUMifkLpsD4Hs3x_VPzPOPHm2ND80/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -502,7 +607,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
                 <tr><td>Date</td><td>7 July 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1C5_yVB5AmoNNPM5pUhDIMCzWav9XfYpf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1C5_yVB5AmoNNPM5pUhDIMCzWav9XfYpf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -512,7 +619,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Manipal Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>16 June 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/17NQiRaMfeRwZSA-MUulVzst7yQzENBzc/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/17NQiRaMfeRwZSA-MUulVzst7yQzENBzc/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -522,7 +631,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>9 June 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1NnqsomzigcJ2XYC01ZDYRfWNNJY6PUxn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1NnqsomzigcJ2XYC01ZDYRfWNNJY6PUxn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -532,7 +643,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK Max Super Speciality Hospital New Delhi</td></tr>
                 <tr><td>Date</td><td>2 June 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1LjdzmN41LncpwlvDnKAwWr3W9NztggRf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1LjdzmN41LncpwlvDnKAwWr3W9NztggRf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -542,7 +655,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>26 May 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1P2CIXKb0DfGO4dvypE13XYB9OzAH8Ax5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1P2CIXKb0DfGO4dvypE13XYB9OzAH8Ax5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -552,7 +667,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>19 May 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1L_avHWTofhcuOu-hBMeG1uTtec-4taN_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1L_avHWTofhcuOu-hBMeG1uTtec-4taN_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -562,7 +679,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
                 <tr><td>Date</td><td>12 May 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1Y_9rj9u2pMz1E3Pa7u3HIcd7jCLsVP5A/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1Y_9rj9u2pMz1E3Pa7u3HIcd7jCLsVP5A/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
         <div class="masterclass-entry">
@@ -572,7 +691,9 @@ strong { font-weight: bold; }
                 <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
                 <tr><td>Date</td><td>5 May 2024</td></tr>
             </tbody></table>
-            <a href="https://drive.google.com/file/d/1P5Fn3Tpa-q0nL84Z6utsjKjYDNqOHSA5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            <div class="button-container">
+                <a href="https://drive.google.com/file/d/1P5Fn3Tpa-q0nL84Z6utsjKjYDNqOHSA5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+            </div>
         </div>
 
     </div>
