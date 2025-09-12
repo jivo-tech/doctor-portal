@@ -1,73 +1,125 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Jivo Briefing Room</title><style>
-/* Base styles from your other pages */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Jivo Briefing Room</title>
+
+<style>
+/* ---------- base reset ---------- */
 html { -webkit-print-color-adjust: exact; }
-* { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+*,*::before,*::after { box-sizing: border-box; -webkit-print-color-adjust: exact; }
 html, body { margin: 0; padding: 0; }
+
+/* ---------- layout ---------- */
 @media only screen {
-    body { margin: 2em auto; max-width: 900px; color: rgb(55, 53, 47); }
+  body { margin: 2em auto; max-width: 900px; color: rgb(55,53,47); }
 }
-body { line-height: 1.5; white-space: pre-wrap; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-a, a.visited { color: #3751FE; text-decoration: none; font-weight: 600; }
+
+body {
+  line-height: 1.5;
+  /* white-space: pre-wrap;  ← removed to stop extra gaps */
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- typography & links ---------- */
+a { color: #3751FE; text-decoration: none; font-weight: 600; }
 a:hover { text-decoration: underline; }
-h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.2; font-weight: 700; margin-bottom: 0; }
-.page-title { font-size: 2.5rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5em; }
-h2 { font-size: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5em; font-weight: 700; }
-p { margin-top: 0.5em; margin-bottom: 0.5em; }
-strong { font-weight: bold; }
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 
-.cover-image {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 0.5em;
+h1,h2,h3 {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
 }
 
-.briefing-item { margin-bottom: 0.5em; padding-bottom: 2em; border-bottom: 1px solid #ddd; }
-.button { display: inline-block; background-color: #3751FE; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 1em; }
-.button:hover { background-color: #001299; text-decoration: none; color: white; }
-.button-container { text-align: center; } /* New class to center the button */
+.page-title { font-size: 2.5rem; margin-bottom: .75rem; }
 
-/* Styles for the responsive video embed */
+h2 { font-size: 1.5rem; margin: .5rem 0 .5rem; }
+
+p { margin: .5em 0; }
+
+strong { font-weight: bold; }
+
+/* ---------- imagery ---------- */
+.cover-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: .75rem;
+}
+
+/* ---------- content spacing ---------- */
+.page-body       { margin-top: 1.25rem; }
+
+.briefing-item   {
+  margin-bottom: 1.5rem;   /* space between items */
+  padding-bottom: 1.25em;  /* subtle divider padding */
+  border-bottom: 1px solid #ddd;
+}
+
+.button {
+  display: inline-block;
+  background-color: #3751FE;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: .75em;
+}
+.button:hover { background-color: #001299; }
+
+/* ---------- responsive video ---------- */
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    margin-top: 1em;
-    border-radius: 8px;
+  position: relative;
+  padding-bottom: 56.25%;  /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border-radius: 8px;
 }
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 }
-</style></head><body><article class="page sans">
-    <header>
-        <img src="/jivo-hub/remuneration-structure.webp" alt="Jivo Briefing Room Banner" class="cover-image"/>
-        <h1 class="page-title">Jivo Briefing Room</h1>
-    </header>
-    <div class="page-body">
+</style>
+</head>
 
-        <div class="briefing-item">
-            <h2>Patient Referral & Care Explainer</h2>
-            <p>A short video explaining how patient referral and care are anchored in your role as a Jivo Doctor Partner.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/qGPKB_cuWEU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
+<body>
+<article class="page sans">
+  <header>
+    <img src="/jivo-hub/remuneration-structure.webp"
+         alt="Jivo Briefing Room Banner"
+         class="cover-image">
+    <h1 class="page-title">Jivo Briefing Room</h1>
+  </header>
 
-        <div class="briefing-item">
-            <h2>Doctor Trust Is Infrastructure</h2>
-            <p>Read our article on Medium: "Beyond Borders: Rebuilding Cross-Border Healthcare on Doctor Trust, Not Transactions."</p>
-            <div class="button-container">
-                <a href="https://medium.com/@varun_tomar/doctor-trust-is-infrastructure-1f352648e717" target="_blank" rel="noopener noreferrer" class="button">Read on Medium</a>
-            </div>
-        </div>
+  <div class="page-body">
 
+    <div class="briefing-item">
+      <h2>Patient Referral &amp; Care Explainer</h2>
+      <p>A short video explaining how patient referral and care are anchored in your role as a Jivo Doctor Partner.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/qGPKB_cuWEU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
     </div>
-</article></body></html>
 
+    <div class="briefing-item">
+      <h2>Doctor Trust Is Infrastructure</h2>
+      <p>Read our article on Medium: "Beyond Borders: Rebuilding Cross-Border Healthcare on Doctor Trust, Not Transactions."</p>
+      <div style="text-align:center;">
+        <a class="button"
+           href="https://medium.com/@varun_tomar/doctor-trust-is-infrastructure-1f352648e717"
+           target="_blank" rel="noopener noreferrer">
+           Read on Medium
+        </a>
+      </div>
+    </div>
+
+  </div>
+</article>
+</body>
+</html>
