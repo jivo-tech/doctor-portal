@@ -4,76 +4,71 @@
   <meta charset="utf-8" />
   <title>Jivo Doctor Partner (JDP) Hub</title>
   <style>
-    /* webkit printing magic */
+    /* --- basic resets & layout --- */
     html { -webkit-print-color-adjust: exact; }
-    *    { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+    *,*::before,*::after { box-sizing: border-box; -webkit-print-color-adjust: exact; }
 
-    html, body { margin: 0; padding: 0; }
+    html,body { margin: 0; padding: 0; }
 
     @media only screen {
-      body {
-        margin: 1em auto;
-        max-width: 900px;
-        color: rgb(55, 53, 47);
-      }
+      body { margin: 1em auto; max-width: 900px; color: rgb(55,53,47); }
     }
 
     body { line-height: 1.5; }
 
-    a, a.visited { color: inherit; text-decoration: underline; }
+    /* --- type & links --- */
+    a { color: inherit; text-decoration: underline; }
 
-    h1, h2, h3 {
+    h1,h2,h3 {
       letter-spacing: -0.01em;
       line-height: 1.2;
       font-weight: 600;
-      margin-bottom: 0;
+      margin: 0;               /* we’ll control spacing manually */
     }
 
-    .page-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0;
-    }
+    .page-title   { font-size: 2.5rem; font-weight: 700; }
+    h1            { font-size: 1.875rem; }
 
-    h1 { font-size: 1.875rem; margin-top: 0.1rem; }
-
-    img { max-width: 100%; }
-
+    /* --- banner image --- */
     .page-cover-image {
       display: block;
+      width: 100%; max-height: 30vh;
       object-fit: cover;
-      width: 100%;
-      max-height: 30vh;
       border-radius: 8px;
     }
 
-    /* NEW: push content down a bit */
+    /* --- SPACING AFTER THE HEADING (requested) --- */
     .page-body { margin-top: 2rem; }
 
+    /* --- card grid --- */
     .column-list {
       display: flex;
       justify-content: space-between;
-      margin: 0;
+      margin-bottom: 2rem;     /* equal space between rows */
     }
 
-    .column     { padding: 0 1em; width: 48%; }
-    .column>h1  { min-height: 75px; }
-    .column:first-child { padding-left: 0; }
-    .column:last-child  { padding-right: 0; }
+    .column {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;             /* tight space between title & its link */
+    }
 
-    p { margin: 0.5em 0; }
+    /* override default paragraph margins so gap handles it */
+    .column p { margin: 0; }
 
-    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
-             "Segoe UI Variable Display", "Segoe UI", Helvetica,
-             "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
-             "Segoe UI Symbol"; }
+    /* --- fonts & accent colour --- */
+    body { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI Variable Display","Segoe UI",Helvetica,
+                         "Apple Color Emoji",Arial,sans-serif,
+                         "Segoe UI Emoji","Segoe UI Symbol"; }
 
     .block-color-blue { color: #337ea9; fill: #337ea9; }
   </style>
 </head>
 
-<body class="sans">
-  <article class="page">
+<body>
+  <article>
     <header>
       <img class="page-cover-image"
            src="/jivo-hub/remuneration-structure.webp"
@@ -86,96 +81,76 @@
       <div class="column-list">
         <div class="column">
           <h1 class="block-color-blue">Jivo Doctor Masterclass</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/jivo-doctor-masterclass.html">
-              Access upcoming masterclass calendar, past masterclass recordings and more
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/jivo-doctor-masterclass.html">
+            Access upcoming masterclass calendar, past masterclass recordings and more
+          </a></p>
         </div>
         <div class="column">
           <h1 class="block-color-blue">Jivo Patient Stories</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/jivo-patient-stories.html">
-              Real cross-border patient journeys. Doctor-led, protocol-first, built for outcomes.
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/jivo-patient-stories.html">
+            Real cross-border patient journeys. Doctor-led, protocol-first, built for outcomes.
+          </a></p>
         </div>
       </div>
 
       <div class="column-list">
         <div class="column">
           <h1 class="block-color-blue">Jivo Briefing Room</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/jivo-briefing-room.html">
-              Access briefings to familiarise yourself with the Jivo concept and thought leadership
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/jivo-briefing-room.html">
+            Access briefings to familiarise yourself with the Jivo concept and thought leadership
+          </a></p>
         </div>
         <div class="column">
           <h1 class="block-color-blue">JDP Role</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/jdp-role.html">
-              Jivo Doctor Partner roles &amp; responsibilities in patient care
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/jdp-role.html">
+            Jivo Doctor Partner roles &amp; responsibilities in patient care
+          </a></p>
         </div>
       </div>
 
       <div class="column-list">
         <div class="column">
           <h1 class="block-color-blue">Referral Protocol</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/referral-protocol.html">
-              Familiarise yourself with Referral Protocol
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/referral-protocol.html">
+            Familiarise yourself with Referral Protocol
+          </a></p>
         </div>
         <div class="column">
           <h1 class="block-color-blue">Remuneration Structure</h1>
-          <p class="block-color-blue">
-            <a href="/jivo-hub/remuneration-structure.html">
-              Applicable remuneration structure for JDP
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="/jivo-hub/remuneration-structure.html">
+            Applicable remuneration structure for JDP
+          </a></p>
         </div>
       </div>
 
       <div class="column-list">
         <div class="column">
           <h1 class="block-color-blue">Refer a Patient</h1>
-          <p class="block-color-blue">
-            <a href="https://forms.gle/eX5NyM4L8J4DvRHn8" target="_blank" rel="noopener noreferrer">
-              Refer a patient
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="https://forms.gle/eX5NyM4L8J4DvRHn8" target="_blank" rel="noopener">
+            Refer a patient
+          </a></p>
         </div>
         <div class="column">
           <h1 class="block-color-blue">Invite a Doctor</h1>
-          <p class="block-color-blue">
-            <a href="https://signup.jivo.co/" target="_blank" rel="noopener noreferrer">
-              Invite another doctor to Jivo
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="https://signup.jivo.co/" target="_blank" rel="noopener">
+            Invite another doctor to Jivo
+          </a></p>
         </div>
       </div>
 
       <div class="column-list">
         <div class="column">
           <h1 class="block-color-blue">Book a Call</h1>
-          <p class="block-color-blue">
-            <a href="https://calendly.com/umang-kpvl/welcome-doctor" target="_blank" rel="noopener noreferrer">
-              Book a call with Jivo team
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="https://calendly.com/umang-kpvl/welcome-doctor" target="_blank" rel="noopener">
+            Book a call with Jivo team
+          </a></p>
         </div>
         <div class="column">
           <h1 class="block-color-blue">Marketing Material</h1>
-          <p class="block-color-blue">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZXGj6X2Ff6f7Zyw6D9W4sih-PX--j-cu8g4yuFBUKNnqcQQ/viewform"
-               target="_blank" rel="noopener noreferrer">
-              Request your customised marketing material
-            </a>
-          </p>
+          <p class="block-color-blue"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZXGj6X2Ff6f7Zyw6D9W4sih-PX--j-cu8g4yuFBUKNnqcQQ/viewform"
+               target="_blank" rel="noopener">
+            Request your customised marketing material
+          </a></p>
         </div>
       </div>
 
