@@ -21,7 +21,8 @@ const navLinks = [
     { name: 'Marketing Material', href: 'https://docs.google.com/forms/d/e/1FAIpQLSdZXGj6X2Ff6f7Zyw6D9W4sih-PX--j-cu8g4yuFBUKNnqcQQ/viewform' },
 ];
 
-export default function Layout({ children }) {
+// The Layout component now accepts an `onSignOut` prop
+export default function Layout({ children, onSignOut }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -45,9 +46,10 @@ export default function Layout({ children }) {
                     <h1 className="text-lg font-bold">Jivo Doctor Partner Hub</h1>
                 </div>
                 <div className="flex-1 text-right">
-                    <a href="#" className="bg-white text-blue-800 font-semibold py-2 px-4 rounded-md text-sm">
+                    {/* The Sign Out button now triggers the onSignOut function */}
+                    <button onClick={onSignOut} className="bg-white text-blue-800 font-semibold py-2 px-4 rounded-md text-sm">
                         Sign Out
-                    </a>
+                    </button>
                 </div>
             </header>
 
@@ -91,3 +93,4 @@ export default function Layout({ children }) {
         </div>
     );
 }
+
