@@ -15,9 +15,17 @@ h2 { font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.5em; font-weight: 7
 p { margin-top: 0.5em; margin-bottom: 1em; }
 strong { font-weight: bold; }
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+.cover-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+}
+
 .briefing-item { margin-bottom: 2.5em; padding-bottom: 2em; border-bottom: 1px solid #ddd; }
 .button { display: inline-block; background-color: #3751FE; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 1em; }
 .button:hover { background-color: #001299; text-decoration: none; color: white; }
+.button-container { text-align: center; } /* New class to center the button */
 
 /* Styles for the responsive video embed */
 .video-container {
@@ -38,7 +46,10 @@ strong { font-weight: bold; }
     height: 100%;
 }
 </style></head><body><article class="page sans">
-    <header><h1 class="page-title">Jivo Briefing Room</h1></header>
+    <header>
+        <img src="/jivo-hub/remuneration-structure.webp" alt="Jivo Briefing Room Banner" class="cover-image"/>
+        <h1 class="page-title">Jivo Briefing Room</h1>
+    </header>
     <div class="page-body">
 
         <div class="briefing-item">
@@ -52,8 +63,11 @@ strong { font-weight: bold; }
         <div class="briefing-item">
             <h2>Doctor Trust Is Infrastructure</h2>
             <p>Read our article on Medium: "Beyond Borders: Rebuilding Cross-Border Healthcare on Doctor Trust, Not Transactions."</p>
-            <a href="https://medium.com/@varun_tomar/doctor-trust-is-infrastructure-1f352648e717" target="_blank" rel="noopener noreferrer" class="button">Read on Medium</a>
+            <div class="button-container">
+                <a href="https://medium.com/@varun_tomar/doctor-trust-is-infrastructure-1f352648e717" target="_blank" rel="noopener noreferrer" class="button">Read on Medium</a>
+            </div>
         </div>
 
     </div>
 </article></body></html>
+
