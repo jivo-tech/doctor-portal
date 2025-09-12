@@ -1,690 +1,580 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Jivo Doctor Masterclass</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
+/* Base styles from your other pages */
+html { -webkit-print-color-adjust: exact; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+html, body { margin: 0; padding: 0; }
 @media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.collection-content td {
-	white-space: pre-wrap;
-	word-break: break-word;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-blockquote.quote-large {
-	font-size: 1.25em;
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
+    body { margin: 2em auto; max-width: 900px; color: rgb(55, 53, 47); }
+}
+body { line-height: 1.5; white-space: pre-wrap; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+a, a.visited { color: #3751FE; text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.2; font-weight: 700; margin-bottom: 0; }
+.page-title { font-size: 2.5rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75em; }
+h2 { font-size: 1.75rem; margin-top: 2em; border-bottom: 2px solid #eee; padding-bottom: 0.3em; margin-bottom: 1em;}
+h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5em; font-weight: 700; }
+p { margin-top: 0.5em; margin-bottom: 0.5em; }
+strong { font-weight: bold; }
 .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.highlight-default_background {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
-.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
-.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
-.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
-.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
-.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
-.select-value-color-blue { background-color: rgba(0, 99, 174, 0.172); }
-.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
-.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
-.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+.intro-box { background: rgba(231, 243, 248, 1); padding: 1.5em; border-radius: 8px; margin-bottom: 2em; }
+.masterclass-entry { margin-bottom: 2em; padding-bottom: 1.5em; border-bottom: 1px solid #ddd; }
+.details-table { margin-top: 1em; width: 100%; border-collapse: collapse; }
+.details-table td { padding: 0.5em; border: 1px solid #eee; }
+.details-table td:first-child { font-weight: 600; width: 30%; }
+.button { display: inline-block; background-color: #3751FE; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 1em; }
+.button:hover { background-color: #001299; text-decoration: none; color: white; }
+</style></head><body><article class="page sans">
+    <header><h1 class="page-title">Jivo Doctor Masterclass</h1></header>
+    <div class="page-body">
+        
+        <div class="intro-box">
+            <p>A collaborative initiative by Jivo and India’s top hospitals — powered by leading specialists, curated for Africa’s rising clinical leaders.</p>
+        </div>
 
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
+        <a href="https://luma.com/jivodoctormasterclass?k=c&period=past" target="_blank" rel="noopener noreferrer" class="button">View Full Calendar & Register</a>
 
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
+        <h2>Past Masterclasses Log</h2>
 
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="257644c0-3db9-8081-86a8-ed2a367dec5c" class="page sans"><header><img class="page-cover-image" src="Jivo%20Doctor%20Masterclass%20257644c03db9808186a8ed2a367dec5c/Screenshot_2025-08-15_at_01.07.27.png" style="object-position:center 50%"/><h1 class="page-title">Jivo Doctor Masterclass</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-blue callout" style="white-space:pre-wrap;display:flex" id="257644c0-3db9-80e0-8c64-e717e7e85c64"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="257644c0-3db9-806f-bcae-c7a349078b97" class="">A collaborative initiative by Jivo and India’s top hospitals — powered by leading specialists, curated for Africa’s rising clinical leaders.</p></div></figure><h2 id="257644c0-3db9-8026-af1a-fe78eb3ebaed" class="block-color-blue"><a href="https://luma.com/jivodoctormasterclass?k=c&amp;period=past">Jivo Doctor Masterclass Calendar</a></h2><figure id="267644c0-3db9-80e1-95f4-c921774c07a1"><a href="https://lu.ma/jivodoctormasterclass?k=c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Jivo Doctor Masterclass Series · Events Calendar</div><div class="bookmark-description">View and subscribe to events from Jivo Doctor Masterclass Series on Luma. A collaborative initiative by Jivo and India’s top hospitals — powered by leading specialists, curated for Africa’s rising clinical leaders.</div></div><div class="bookmark-href"><img src="https://luma.com/apple-touch-icon.png" class="icon bookmark-icon"/>https://lu.ma/jivodoctormasterclass?k=c</div></div><img src="https://images.lumacdn.com/calendar-cover-images/y1/4d1ca326-6915-4443-8806-a0b385e8c398.jpg" class="bookmark-image"/></a></figure><p id="257644c0-3db9-801f-aed1-e8694c7a97ea" class="block-color-blue">The above link helps you access masterclass calendar and register for future masterclasses in 1 click.</p><h2 id="257644c0-3db9-801d-9e22-e677bba39c55" class="block-color-blue">Past Masterclasses Log</h2><h3 id="267644c0-3db9-80bf-abeb-e3b1831ed4b6" class="block-color-blue">Masterclass on Masterclass on Cancer: Myths Facts and Advances</h3><table id="267644c0-3db9-80dd-968f-cfbadd652910" class="simple-table"><tbody><tr id="267644c0-3db9-80aa-aa39-ded3c9e9fd60"><td id="px:~" class="" style="width:353.5px">Conducted by</td><td id="=te[" class="" style="width:353.5px">Dr. Mohit Agarwal, Principal Director &amp; Unit Head - Medical Oncology</td></tr><tr id="267644c0-3db9-80e3-9bc3-d3cd80e97eee"><td id="px:~" class="" style="width:353.5px">Hospital</td><td id="=te[" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="267644c0-3db9-80aa-87ce-c3558945304e"><td id="px:~" class="" style="width:353.5px">Date</td><td id="=te[" class="" style="width:353.5px">7 September 2025</td></tr><tr id="267644c0-3db9-805b-be1f-e49799435226"><td id="px:~" class="" style="width:353.5px">Link to session recording</td><td id="=te[" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1eIA9lQtI1QEp8J86RCMphgGYbT8x7GTX/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-8096-b3d5-c4b7654e61a6" class="block-color-blue">Masterclass on <strong>Correct Timing for Congenital Heart Surgery</strong></h3><table id="266644c0-3db9-8011-9427-ea506805497d" class="simple-table"><tbody><tr id="266644c0-3db9-80b3-bf32-dc97dda79667"><td id="nuy]" class="" style="width:353.5px">Conducted by</td><td id="?E\S" class="" style="width:353.5px">Dr. Aseem R. Srivastava, Chief - Paediatric CTVS</td></tr><tr id="266644c0-3db9-80c1-9da2-ce27e65ac8e4"><td id="nuy]" class="" style="width:353.5px">Hospital</td><td id="?E\S" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="266644c0-3db9-80be-a809-fca4795740ff"><td id="nuy]" class="" style="width:353.5px">Date</td><td id="?E\S" class="" style="width:353.5px">31 August 2025</td></tr><tr id="266644c0-3db9-80b6-8608-d4928003daec"><td id="nuy]" class="" style="width:353.5px">Link to session recording</td><td id="?E\S" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1L7i0GTYqR7cpe2X0dO7FMq28S7ohdfqW/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="259644c0-3db9-8043-b4ec-c2bb68632e08" class="block-color-blue">Masterclass on <strong>Thoracic Surgery: Basics to Robotics</strong></h3><table id="259644c0-3db9-803d-a87b-c0d2eeff440f" class="simple-table"><tbody><tr id="259644c0-3db9-8071-a679-f7f5262d326f"><td id="}FUz" class="" style="width:353.5px">Conducted by</td><td id="{kKl" class="" style="width:353.5px">Dr. Shaiwal Khandelwal, Director - Thoracic Surgery</td></tr><tr id="259644c0-3db9-8041-8723-eb7c386aea0a"><td id="}FUz" class="" style="width:353.5px">Hospital</td><td id="{kKl" class="" style="width:353.5px">Max Hospital, Gurgaon</td></tr><tr id="259644c0-3db9-809a-82fa-e369ece96df2"><td id="}FUz" class="" style="width:353.5px">Date</td><td id="{kKl" class="" style="width:353.5px">24 August 2025</td></tr><tr id="259644c0-3db9-8042-a92e-d9d992eaf896"><td id="}FUz" class="" style="width:353.5px">Link to session recording</td><td id="{kKl" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1PnDGGdqLMHUWZ2kl5HsRllF96WdWuqNT/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-801d-9643-e0faba6aa7da" class="block-color-blue">Masterclass on Pre IVF workups and corrective surgeries - How GPs can kickstart infertility care</h3><table id="257644c0-3db9-802d-999c-dc0704cc4587" class="simple-table"><tbody><tr id="257644c0-3db9-8021-830a-e4d5555a8659"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Conducted by</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default">Dr Shelley Singh, </mark>Director - Obstetrics &amp; Gynaecology</td></tr><tr id="257644c0-3db9-8061-bb27-ddcbe6519612"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Hospital</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default">Fortis La Femme Hospital, New Delhi</mark></td></tr><tr id="257644c0-3db9-8019-a364-f7e36afbd07d"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Date</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default">17 August 2025</mark></td></tr><tr id="257644c0-3db9-80b8-96d0-fcaf661d5335"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Link to session recording</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default"><a href="https://drive.google.com/file/d/1fbXnNOrG7PoVTeznhJia4G1yej43PmMf/view?usp=sharing">Masterclass Zoom Session Recording</a></mark></td></tr></tbody></table><h3 id="257644c0-3db9-8097-813c-f86e286bbeb7" class="block-color-blue">Masterclass on Spinal Surgery: Advances in Techniques &amp; Technology for Excellent Patient Outcomes</h3><table id="257644c0-3db9-80c1-a3c2-cb3be2586508" class="simple-table"><tbody><tr id="257644c0-3db9-80aa-96b2-dd69fb195a45"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Conducted by</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default">Dr. Puneet Girdhar, </mark>Principal Director &amp; Head Ortho Spine, MIS &amp; Robotic Spine Surgery</td></tr><tr id="257644c0-3db9-80e0-9a73-e203ff9d2768"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Hospital</mark></td><td id=";h@Y" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-807d-a4b8-cbb411a63420"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Date</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default">10 August 2025</mark></td></tr><tr id="257644c0-3db9-80fa-91e4-e0294a16c08d"><td id="ITba" class="" style="width:353.5px"><mark class="highlight-default">Link to session recording</mark></td><td id=";h@Y" class="" style="width:353.5px"><mark class="highlight-default"><a href="https://drive.google.com/file/d/1b1Whh9JMEA6_ywXZhBvpD4cS0e7PMa0R/view?usp=sharing">Masterclass Zoom Session Recording</a></mark></td></tr></tbody></table><h3 id="257644c0-3db9-804b-9247-e20c31807e2f" class="block-color-blue">Masterclass on Plastic Surgery : From Reconstructions to Aesthetics </h3><table id="257644c0-3db9-80ef-978c-ff78d210b1b6" class="simple-table"><tbody><tr id="257644c0-3db9-805a-8c66-e40047fb2878"><td id="UFPS" class="" style="width:353.5px">Conducted by</td><td id="JBPC" class="" style="width:353.5px">Dr Pradeep Kumar Singh, Head - Cosmetic &amp; Plastic Surgery</td></tr><tr id="257644c0-3db9-802f-9f49-da1c529c686b"><td id="UFPS" class="" style="width:353.5px">Hospital</td><td id="JBPC" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-8048-a803-ca915e124f8d"><td id="UFPS" class="" style="width:353.5px">Date</td><td id="JBPC" class="" style="width:353.5px">27 July 2025</td></tr><tr id="257644c0-3db9-8033-96d8-c9acd93cdc38"><td id="UFPS" class="" style="width:353.5px">Link to session recording</td><td id="JBPC" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1B-GX-uwV5sGFyMdUhz1xjDExHbFgO-Ui/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-803e-8990-c22060e1b379" class="block-color-blue">Masterclass on Basics of Living Donor Liver Transplant </h3><table id="257644c0-3db9-8084-ae0c-cef34b054ea5" class="simple-table"><tbody><tr id="257644c0-3db9-80ac-8a3d-f7ec1e11496c"><td id="MVR]" class="" style="width:353.5px">Conducted by</td><td id="tOKw" class="" style="width:353.5px">Dr. Sandeep Jha, Senior Consultant HPB Surgery &amp; Liver Transplant</td></tr><tr id="257644c0-3db9-80ab-9f88-dc5cb576e49c"><td id="MVR]" class="" style="width:353.5px">Hospital</td><td id="tOKw" class="" style="width:353.5px">Shalby Sanar International Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-80cd-b2cb-d5079de56139"><td id="MVR]" class="" style="width:353.5px">Date</td><td id="tOKw" class="" style="width:353.5px">20 July 2025</td></tr><tr id="257644c0-3db9-8009-b185-c2e5065a64af"><td id="MVR]" class="" style="width:353.5px">Link to session recording</td><td id="tOKw" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1-70JP4QGylYzkKwANmyAaOjTwrX4h7-8/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80ed-bba2-ec8c294fe330" class="block-color-blue">Masterclass on Recent Advances in Neurosurgery  </h3><table id="257644c0-3db9-80f0-90de-d6d9d2dd0842" class="simple-table"><tbody><tr id="257644c0-3db9-8015-9c5e-c7fbd597d2f8"><td id="@NlY" class="" style="width:353.5px">Conducted by</td><td id="cWQ&lt;" class="" style="width:353.5px">Dr. Anil Kumar Kansal, Principal Director &amp; HOD - Neurosurgery &amp; Neuro Spine Department</td></tr><tr id="257644c0-3db9-800a-8f13-e04a49745c4b"><td id="@NlY" class="" style="width:353.5px">Hospital</td><td id="cWQ&lt;" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-80b0-80a9-c57235a3e049"><td id="@NlY" class="" style="width:353.5px">Date</td><td id="cWQ&lt;" class="" style="width:353.5px">13 July 2025</td></tr><tr id="257644c0-3db9-805a-9351-ccd39c046ae3"><td id="@NlY" class="" style="width:353.5px">Link to session recording</td><td id="cWQ&lt;" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1ylvxW0HV5tAsRYJZ8Hk3aDXeHh2UlSx6/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80ec-98e3-d124fbed01b9" class="block-color-blue">Masterclass on Diagnosis &amp; Management of Prostate Cancer </h3><table id="257644c0-3db9-804e-80ce-cac041a1092a" class="simple-table"><tbody><tr id="257644c0-3db9-80dc-b4dc-d20320f9263d"><td id="Hf?F" class="" style="width:353.5px">Conducted by</td><td id="F`&gt;C" class="" style="width:353.5px">Dr. Shafiq Ahmed, Director - Urology, Andrology &amp; Renal Transplant</td></tr><tr id="257644c0-3db9-803c-b65b-d33d8c7c9d8c"><td id="Hf?F" class="" style="width:353.5px">Hospital</td><td id="F`&gt;C" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-808f-b290-c95faf090795"><td id="Hf?F" class="" style="width:353.5px">Date</td><td id="F`&gt;C" class="" style="width:353.5px">6 July 2025</td></tr><tr id="257644c0-3db9-8014-a124-f8027efa875a"><td id="Hf?F" class="" style="width:353.5px">Link to session recording</td><td id="F`&gt;C" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1Jltrn-44x265fqjCBQIE2hXClN-d8SPg/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80fc-a244-cd2622ef45ca" class="block-color-blue">Masterclass on Diagnosis &amp; Management of Epilepsy &amp; Seizures</h3><table id="257644c0-3db9-801f-89a1-f5e1468d6704" class="simple-table"><tbody><tr id="257644c0-3db9-8021-af97-d8b66680b042"><td id="yZNn" class="" style="width:353.5px">Conducted by</td><td id="[J~h" class="" style="width:353.5px">Dr. Dinesh Rattnani, Senior Director - Neurosurgery, Neuro Critical Care &amp; Spine Surgery</td></tr><tr id="257644c0-3db9-80bf-802c-f94c1e185b3d"><td id="yZNn" class="" style="width:353.5px">Hospital</td><td id="[J~h" class="" style="width:353.5px">Max Super Speciality Hospital, Noida</td></tr><tr id="257644c0-3db9-8091-88c4-c47d0b8578f2"><td id="yZNn" class="" style="width:353.5px">Date</td><td id="[J~h" class="" style="width:353.5px">29 June 2025</td></tr><tr id="257644c0-3db9-8030-9d93-e8edfe5eb931"><td id="yZNn" class="" style="width:353.5px">Link to session recording</td><td id="[J~h" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1wiVSmoYA4GJ9OIAqytVqYsrtEgdu6sZH/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80cb-ab71-d919c7344522" class="block-color-blue">Masterclass on Advanced Treatments in Gynaec Oncology</h3><table id="257644c0-3db9-80e5-98de-de57377234b9" class="simple-table"><tbody><tr id="257644c0-3db9-809d-8992-e3e1bbe2c686"><td id="\HOp" class="" style="width:353.5px">Conducted by</td><td id="^jWB" class="" style="width:353.5px">Dr. Archit Pandit, Director - Surgical Oncology</td></tr><tr id="257644c0-3db9-806e-9cba-d710fee999cb"><td id="\HOp" class="" style="width:353.5px">Hospital</td><td id="^jWB" class="" style="width:353.5px">Fortis Escorts Hospital New Delhi</td></tr><tr id="257644c0-3db9-8021-b51a-c7f30c78afef"><td id="\HOp" class="" style="width:353.5px">Date</td><td id="^jWB" class="" style="width:353.5px">22 June 2025</td></tr><tr id="257644c0-3db9-80ba-905c-dc92f8eea530"><td id="\HOp" class="" style="width:353.5px">Link to session recording</td><td id="^jWB" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1KMjZPRDA0Rb1SO_T-9dUgQa7unLDZbtE/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8011-9c74-cdaffac90c32" class="block-color-blue">Masterclass on Diagnosis and Management of Rectum Cancer</h3><table id="257644c0-3db9-804b-b4fe-d5977c3738cb" class="simple-table"><tbody><tr id="257644c0-3db9-803d-9a45-c784328961e7"><td id="ZpAS" class="" style="width:353.5px">Conducted by</td><td id="}kV&gt;" class="" style="width:353.5px">Dr. Kaushal Kishore Yadav, Associate Director &amp; Unit Head – Surgical Oncology</td></tr><tr id="257644c0-3db9-8085-8a41-c6e9168dc706"><td id="ZpAS" class="" style="width:353.5px">Hospital</td><td id="}kV&gt;" class="" style="width:353.5px">Max Hospital Gurgaon</td></tr><tr id="257644c0-3db9-806e-a9f3-f6083ff684f1"><td id="ZpAS" class="" style="width:353.5px">Date</td><td id="}kV&gt;" class="" style="width:353.5px">15 June 2025</td></tr><tr id="257644c0-3db9-80f2-89ff-d7752c7f01bc"><td id="ZpAS" class="" style="width:353.5px">Link to session recording</td><td id="}kV&gt;" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1hcAFJdfneK_95QKQVKgYFUW01pHCD5XO/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8080-adaf-de318a3db44a" class=""><mark class="highlight-blue">Masterclass on Advances in Chronic Pain Management</mark></h3><table id="257644c0-3db9-8040-b99d-d6c17b51709e" class="simple-table"><tbody><tr id="257644c0-3db9-8038-a5c3-fc86e4618ee4"><td id="e{Hf" class="" style="width:353.5px">Conducted by</td><td id="Luor" class="" style="width:353.5px">Dr. Ashu Kumar Jain, Head - Pain Medicine &amp; Palliative Care</td></tr><tr id="257644c0-3db9-80bb-8dc3-e9e0acbeddce"><td id="e{Hf" class="" style="width:353.5px">Hospital</td><td id="Luor" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-8083-b216-ed72ef9f2f9b"><td id="e{Hf" class="" style="width:353.5px">Date</td><td id="Luor" class="" style="width:353.5px">8 June 2025</td></tr><tr id="257644c0-3db9-8073-8746-d8321a9d2e48"><td id="e{Hf" class="" style="width:353.5px">Link to session recording</td><td id="Luor" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/13Ch8aLw7524Dr25xxziBb-pAkwWYOaOX/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8079-8be8-cf9ac12ff430" class="block-color-blue">Masterclass on Diagnosis and Management of Ischemic Heart Disease</h3><table id="257644c0-3db9-80e4-bc33-c65828a47feb" class="simple-table"><tbody><tr id="257644c0-3db9-80a4-a833-e17593b44b48"><td id="[?V_" class="" style="width:353.5px">Conducted by</td><td id=":YqG" class="" style="width:353.5px">Dr. Rohit Goel, Principal Consultant - Cardiology</td></tr><tr id="257644c0-3db9-80a6-996c-c42578ff7035"><td id="[?V_" class="" style="width:353.5px">Hospital</td><td id=":YqG" class="" style="width:353.5px">Max Hospital Gurgaon</td></tr><tr id="257644c0-3db9-804e-9cb0-cb7d415c1d32"><td id="[?V_" class="" style="width:353.5px">Date</td><td id=":YqG" class="" style="width:353.5px">1 June 2025</td></tr><tr id="257644c0-3db9-8083-ae9d-ed9fdab6c94c"><td id="[?V_" class="" style="width:353.5px">Link to session recording</td><td id=":YqG" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1C0LjTTedKbjlLN0GXsOc0aXa7bg9vy3C/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80e4-9f37-fdf6175ec191" class="block-color-blue">Masterclass on From Detection to Recovery: Navigating the Future of Cancer Care</h3><table id="257644c0-3db9-80fc-aa3f-f2cda30119a1" class="simple-table"><tbody><tr id="257644c0-3db9-80cd-92c7-dbe1c4f378d3"><td id="fidX" class="" style="width:353.5px">Conducted by</td><td id="Ae&lt;Z" class="" style="width:353.5px">Dr. Nithin S G, Consultant - Medical Oncology</td></tr><tr id="257644c0-3db9-802d-bc94-f69595671157"><td id="fidX" class="" style="width:353.5px">Hospital</td><td id="Ae&lt;Z" class="" style="width:353.5px">Fortis Vasant Kunj, New Delhi</td></tr><tr id="257644c0-3db9-8017-8546-e08900a3b0b9"><td id="fidX" class="" style="width:353.5px">Date</td><td id="Ae&lt;Z" class="" style="width:353.5px">11 May 2025</td></tr><tr id="257644c0-3db9-80cd-9aca-e60b1f79105c"><td id="fidX" class="" style="width:353.5px">Link to session recording</td><td id="Ae&lt;Z" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1CMJ-34BjC31RiKLZRnIfOqzinNhquqUc/view?usp=drive_link">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-802f-ba37-f811830e3ac4" class="block-color-blue">Masterclass on Diagnosis and Management of Obesity and Metabolic Syndrome: The Role of Bariatric Surgery </h3><table id="257644c0-3db9-807c-8dfe-c4bba9a2a75e" class="simple-table"><tbody><tr id="257644c0-3db9-8061-8926-e96e90201697"><td id="qfhR" class="" style="width:353.5px">Conducted by</td><td id="&gt;qfT" class="" style="width:353.5px">Dr. Rakesh Durkhure, Head - General, MI &amp; Bariatric Surgery</td></tr><tr id="257644c0-3db9-80bc-8493-d0ca2cc81b20"><td id="qfhR" class="" style="width:353.5px">Hospital</td><td id="&gt;qfT" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-80db-bad1-f43dc065fab8"><td id="qfhR" class="" style="width:353.5px">Date</td><td id="&gt;qfT" class="" style="width:353.5px">4 May 2025</td></tr><tr id="257644c0-3db9-804f-a70c-ce39d8280d8e"><td id="qfhR" class="" style="width:353.5px">Link to session recording</td><td id="&gt;qfT" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1RFOb5W1uQdVPYaCFo_1JKRiUperHua3_/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80bb-883e-d4c2e2c64206" class="block-color-blue">Masterclass on Diagnosis &amp; Management of Degenerative Joint Disease</h3><table id="257644c0-3db9-8049-9b05-fd6bafed5dd5" class="simple-table"><tbody><tr id="257644c0-3db9-802f-a6c6-fa93a77a2756"><td id="&lt;WU@" class="" style="width:353.5px">Conducted by</td><td id="[=zg" class="" style="width:353.5px">Dr Ishwar Bohra, Senior Director - Joint Replacement Programme</td></tr><tr id="257644c0-3db9-8040-b477-db05f33b7fc7"><td id="&lt;WU@" class="" style="width:353.5px">Hospital</td><td id="[=zg" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-80cf-a869-cfa892287ffe"><td id="&lt;WU@" class="" style="width:353.5px">Date</td><td id="[=zg" class="" style="width:353.5px">27 April 2025</td></tr><tr id="257644c0-3db9-80c9-81eb-cc8508d36aa7"><td id="&lt;WU@" class="" style="width:353.5px">Link to session recording</td><td id="[=zg" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1kibi8NyO9KoB4lLAg4CTVdEevhWAKrrZ/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8091-b329-fdde8792102b" class=""><mark class="highlight-blue">Masterclass on Prostate cancer: Diagnosis and Management</mark></h3><table id="257644c0-3db9-80cd-8dbd-f61ff4d14a05" class="simple-table"><tbody><tr id="257644c0-3db9-806d-9e04-f26fee1f1dd7"><td id="b}=z" class="" style="width:353.5px">Conducted by</td><td id="v_Z`" class="" style="width:353.5px">Dr. Amit Goel, Director and Head of Unit - Renal Transplant, Uro-oncology, Urology &amp; Robotic Surgery</td></tr><tr id="257644c0-3db9-8054-a836-fdf028242006"><td id="b}=z" class="" style="width:353.5px">Hospital</td><td id="v_Z`" class="" style="width:353.5px">Max Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-80e5-9a6b-cd72a8a32967"><td id="b}=z" class="" style="width:353.5px">Date</td><td id="v_Z`" class="" style="width:353.5px">20 April 2025</td></tr><tr id="257644c0-3db9-807d-81a4-cdf80bab15f5"><td id="b}=z" class="" style="width:353.5px">Link to session recording</td><td id="v_Z`" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1OIzL0zLLB4qAkDp_e_eCaldW5811SCvb/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8014-b37f-c05b90335085" class=""><mark class="highlight-blue">Masterclass on Recent advances in Joint Replacement and Sports Injury</mark></h3><table id="257644c0-3db9-8002-ae46-c6be1c2f9bff" class="simple-table"><tbody><tr id="257644c0-3db9-8061-8fba-da49cda37d13"><td id="=r~N" class="" style="width:353.5px">Conducted by</td><td id="cE&lt;R" class="" style="width:353.5px">Dr Subhash Jangid, Senior Director Orthopaedics &amp; Joint Reconstruction</td></tr><tr id="257644c0-3db9-800b-b2e8-c3b66d3dcaee"><td id="=r~N" class="" style="width:353.5px">Hospital</td><td id="cE&lt;R" class="" style="width:353.5px">Fortis Memorial Research Institute, Gurgaon</td></tr><tr id="257644c0-3db9-80ef-acd4-c53c1946c61e"><td id="=r~N" class="" style="width:353.5px">Date</td><td id="cE&lt;R" class="" style="width:353.5px">13 April 2025</td></tr><tr id="257644c0-3db9-801f-b11e-e532f990e321"><td id="=r~N" class="" style="width:353.5px">Link to session recording</td><td id="cE&lt;R" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1egaqC8ZZpd9yn_Y7pcofJOZ-CFl8uZZt/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-807c-a537-c08c4c40e4bf" class=""><mark class="highlight-blue">Masterclass on Spectrum of Orthopaedic Disorder - Evaluation and Management</mark></h3><table id="257644c0-3db9-8098-a409-d9dd49977654" class="simple-table"><tbody><tr id="257644c0-3db9-80bd-991e-c5ee54f4243a"><td id="HBli" class="" style="width:353.5px">Conducted by</td><td id="&gt;AFv" class="" style="width:353.5px">Dr Rohit Lamba, HOD - Orthopaedics &amp; Joint Replacement</td></tr><tr id="257644c0-3db9-8052-94af-da00efd10fda"><td id="HBli" class="" style="width:353.5px">Hospital</td><td id="&gt;AFv" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-8065-9643-d8b1b9c79a52"><td id="HBli" class="" style="width:353.5px">Date</td><td id="&gt;AFv" class="" style="width:353.5px">6 April 2025</td></tr><tr id="257644c0-3db9-80cf-9f9a-d15793bf2674"><td id="HBli" class="" style="width:353.5px">Link to session recording</td><td id="&gt;AFv" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1qAaN3BZPnxUZQjvkhBQSCe8LpYHAv8NM/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80bd-8742-d8a88d3322c7" class=""><mark class="highlight-blue">Masterclass on Tuberculosis &amp; HIV - An Insight</mark></h3><table id="257644c0-3db9-80ef-9013-e4c4d48c48f8" class="simple-table"><tbody><tr id="257644c0-3db9-80ff-9750-ea04a807abd6"><td id="sLxF" class="" style="width:353.5px">Conducted by</td><td id="P}LB" class="" style="width:353.5px">Dr. Neha Rastogi Panda, Senior Consultant - Infectious Diseases</td></tr><tr id="257644c0-3db9-8013-a784-d81b24e80a12"><td id="sLxF" class="" style="width:353.5px">Hospital</td><td id="P}LB" class="" style="width:353.5px">Fortis Memorial Research Institute, Gurgaon</td></tr><tr id="257644c0-3db9-800b-a740-f421a00ad238"><td id="sLxF" class="" style="width:353.5px">Date</td><td id="P}LB" class="" style="width:353.5px">30 March 2025</td></tr><tr id="257644c0-3db9-805f-a797-dfa8d92e14bd"><td id="sLxF" class="" style="width:353.5px">Link to session recording</td><td id="P}LB" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1NJxqamTahJMYY7-AV52jBN9h9Z_HDS1R/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80d8-800b-cfca16f4a79b" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Early-Stage Lung Cancer</mark></h3><table id="257644c0-3db9-80c7-92c4-f1226d9362c8" class="simple-table"><tbody><tr id="257644c0-3db9-8038-b8a9-f41f2a8d1a72"><td id="x`bF" class="" style="width:353.5px">Conducted by</td><td id="aGcp" class="" style="width:353.5px">Dr Arvind Kumar Koslia - Associate Consultant </td></tr><tr id="257644c0-3db9-80d6-a68c-f6ed3e0b7a3d"><td id="x`bF" class="" style="width:353.5px">Hospital</td><td id="aGcp" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-8077-8730-dabb316f658e"><td id="x`bF" class="" style="width:353.5px">Date</td><td id="aGcp" class="" style="width:353.5px">23 March 2025</td></tr><tr id="257644c0-3db9-8031-bda5-cf9a195792b7"><td id="x`bF" class="" style="width:353.5px">Link to session recording</td><td id="aGcp" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1nPSwqWc0SaCWS2A0-fES29PFCRRzyhj1/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8044-a8b7-fcd076c272df" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Esophageal Cancer</mark></h3><table id="257644c0-3db9-8010-8f71-ce7a132d7480" class="simple-table"><tbody><tr id="257644c0-3db9-80c4-913c-deeb7dcfe75e"><td id="akmq" class="" style="width:353.5px">Conducted by</td><td id="RNb&lt;" class="" style="width:353.5px">Dr Preeti Vijayakumaran, Consultant - Surgical Oncology</td></tr><tr id="257644c0-3db9-8072-bba5-c406811b26ae"><td id="akmq" class="" style="width:353.5px">Hospital</td><td id="RNb&lt;" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-8048-948b-fb23b2ebf228"><td id="akmq" class="" style="width:353.5px">Date</td><td id="RNb&lt;" class="" style="width:353.5px">16 March 2025</td></tr><tr id="257644c0-3db9-803b-9594-ef1b795ece37"><td id="akmq" class="" style="width:353.5px">Link to session recording</td><td id="RNb&lt;" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1DNlGlLNBGsa-pGvLMyNAUUjRWiXGJGQV/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-807e-ab88-f04969389b76" class=""><mark class="highlight-blue">Masterclass on CAR-T Cell Therapy</mark></h3><table id="257644c0-3db9-8058-848b-ec4f61e264ed" class="simple-table"><tbody><tr id="257644c0-3db9-80c2-9246-fa8ec4d13d26"><td id="=~f^" class="" style="width:353.5px">Conducted by</td><td id="POZ=" class="" style="width:353.5px">Dr Akash Khandelwal, Consultant - Haemato-Oncology &amp; BMT</td></tr><tr id="257644c0-3db9-8064-9914-ce35eaf9e999"><td id="=~f^" class="" style="width:353.5px">Hospital</td><td id="POZ=" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="257644c0-3db9-80c1-ada8-fbd6ec7c624a"><td id="=~f^" class="" style="width:353.5px">Date</td><td id="POZ=" class="" style="width:353.5px">9 March 2025</td></tr><tr id="257644c0-3db9-8087-995e-d7135a8eea06"><td id="=~f^" class="" style="width:353.5px">Link to session recording</td><td id="POZ=" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1Wmq_O70BS4dqaMUJaqZGOkOU2GuceXK_/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-8050-a7cf-ca91e48a4981" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Breast Cancer</mark></h3><table id="257644c0-3db9-806a-a0fe-da8429437072" class="simple-table"><tbody><tr id="257644c0-3db9-80d1-9aca-cbe0e9a04f3a"><td id="VU|{" class="" style="width:353.5px">Conducted by</td><td id="r=mR" class="" style="width:353.5px">Dr. Sahil Bambroo, Consultant - Medical Oncology</td></tr><tr id="257644c0-3db9-8067-9e9b-d03056be40c8"><td id="VU|{" class="" style="width:353.5px">Hospital</td><td id="r=mR" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="257644c0-3db9-808a-a762-ed183e85d141"><td id="VU|{" class="" style="width:353.5px">Date</td><td id="r=mR" class="" style="width:353.5px">2 March 2025</td></tr><tr id="257644c0-3db9-803c-a79d-cc6f125eb901"><td id="VU|{" class="" style="width:353.5px">Link to session recording</td><td id="r=mR" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1TEtR-mmqwySIwhJJtelup3X3xg1N5c-a/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="257644c0-3db9-80dc-8cb5-f5d06b70df57" class=""><mark class="highlight-blue">Masterclass on Minimally Invasive Surgery in Gynaecology</mark></h3><table id="257644c0-3db9-80a0-8a3c-db040af1c642" class="simple-table"><tbody><tr id="257644c0-3db9-801d-85cb-fc89ae313628"><td id="@O\M" class="" style="width:353.5px">Conducted by</td><td id="[@Zq" class="" style="width:353.5px">Dr. Bandana Sodhi, Director - Obstetrics &amp; Gynaecology</td></tr><tr id="257644c0-3db9-80a9-8fa3-e8c792ea677b"><td id="@O\M" class="" style="width:353.5px">Hospital</td><td id="[@Zq" class="" style="width:353.5px">Fortis La Femme Hospital, New Delhi</td></tr><tr id="257644c0-3db9-80f5-9af7-f56cc71271da"><td id="@O\M" class="" style="width:353.5px">Date</td><td id="[@Zq" class="" style="width:353.5px">23 February 2025</td></tr><tr id="257644c0-3db9-807d-8dfb-d4aabeb4c452"><td id="@O\M" class="" style="width:353.5px">Link to the session presentation</td><td id="[@Zq" class="" style="width:353.5px"><a href="https://docs.google.com/presentation/d/1HoRx7PJWR3tjHsSIg9LqwO3ep4QUDcIw/edit?usp=sharing&amp;ouid=106949530277448701890&amp;rtpof=true&amp;sd=true">Masterclass Presentation</a></td></tr></tbody></table><h3 id="257644c0-3db9-80ce-bd4d-ea383d89b256" class=""><mark class="highlight-blue">Masterclass on Peroral Endoscopic Myotomy in Achalasia Cardia</mark></h3><table id="257644c0-3db9-808f-b031-fe448524b503" class="simple-table"><tbody><tr id="257644c0-3db9-80a3-8aa0-d4ce496cdba7"><td id="UPHg" class="" style="width:353.5px">Conducted by</td><td id="Fxl{" class="" style="width:353.5px">Dr. Bimal Sahu, Senior Consultant and Unit Head - Department of Gastroenterology</td></tr><tr id="257644c0-3db9-8088-a4b8-c185e0d04371"><td id="UPHg" class="" style="width:353.5px">Hospital</td><td id="Fxl{" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="257644c0-3db9-8012-b3b4-df92fbb85d7e"><td id="UPHg" class="" style="width:353.5px">Date</td><td id="Fxl{" class="" style="width:353.5px">16 February 2025</td></tr><tr id="257644c0-3db9-804c-b003-df1828e73d26"><td id="UPHg" class="" style="width:353.5px">Link to the session presentation</td><td id="Fxl{" class="" style="width:353.5px"><a href="https://docs.google.com/presentation/d/1Apvk_LPNldv7QtoAtRJ9ykhCVAfAEu2Zf-jNzbCRK7U/edit?usp=sharing">Masterclass Presentation</a></td></tr></tbody></table><h3 id="257644c0-3db9-805f-95ef-d2e17e474ebe" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Brain Tumour</mark></h3><table id="258644c0-3db9-8036-9a78-fb19a27291b0" class="simple-table"><tbody><tr id="258644c0-3db9-804f-9275-cf41818be91a"><td id="k^ZU" class="" style="width:353.5px">Conducted by</td><td id="C\&lt;H" class="" style="width:353.5px">Dr. Rahul Gupta, Senior Director &amp; HOD - Neurosurgery</td></tr><tr id="258644c0-3db9-8083-bf51-f822dbf49359"><td id="k^ZU" class="" style="width:353.5px">Hospital</td><td id="C\&lt;H" class="" style="width:353.5px">Fortis Hospital, Noida</td></tr><tr id="258644c0-3db9-8005-9c61-f586df140450"><td id="k^ZU" class="" style="width:353.5px">Date</td><td id="C\&lt;H" class="" style="width:353.5px">9 February 2025</td></tr><tr id="258644c0-3db9-8056-9675-db402b7b93f5"><td id="k^ZU" class="" style="width:353.5px">Link to session recording</td><td id="C\&lt;H" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1fNrhe5VWKUmOrTs0URh03e2far3l6913/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-80bc-8bec-dbdfc781c709" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Arthritis in Joints</mark></h3><table id="258644c0-3db9-8056-96a8-e230332fff1c" class="simple-table"><tbody><tr id="258644c0-3db9-8057-a779-c6cb2e1a8492"><td id="lpja" class="" style="width:353.5px">Conducted by</td><td id="iIcY" class="" style="width:353.5px">Dr. Mannu Bhatia, Associate Director - Centre for Orthopaedics</td></tr><tr id="258644c0-3db9-80d2-9d62-ef656c587150"><td id="lpja" class="" style="width:353.5px">Hospital</td><td id="iIcY" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="258644c0-3db9-8083-89c9-f2f3d58c3a16"><td id="lpja" class="" style="width:353.5px">Date</td><td id="iIcY" class="" style="width:353.5px">2 February 2025</td></tr><tr id="258644c0-3db9-8033-86a6-e4fcfe6a94ac"><td id="lpja" class="" style="width:353.5px">Link to session recording</td><td id="iIcY" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1C-s-5NdbFhyWNGe4SAP7u1iuQGw-UTaY/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-8073-be66-c66f3d5b6350" class=""><mark class="highlight-blue">Masterclass on Robotic Assisted Cardiac Surgery</mark></h3><table id="258644c0-3db9-80ea-8cd7-d97b977beb08" class="simple-table"><tbody><tr id="258644c0-3db9-80a2-8216-e2fa33236936"><td id="F[Ji" class="" style="width:353.5px">Conducted by</td><td id="AISX" class="" style="width:353.5px">Dr. Yugal Kishore Mishra, Chairman - Manipal Institute of Cardiac Sciences</td></tr><tr id="258644c0-3db9-8043-b527-c4a07c5341e1"><td id="F[Ji" class="" style="width:353.5px">Hospital</td><td id="AISX" class="" style="width:353.5px">Manipal Hospitals, New Delhi</td></tr><tr id="258644c0-3db9-807a-aa1f-e9e1eceb9c60"><td id="F[Ji" class="" style="width:353.5px">Date</td><td id="AISX" class="" style="width:353.5px">26 January 2025</td></tr><tr id="258644c0-3db9-8033-bcbf-c34a41b867db"><td id="F[Ji" class="" style="width:353.5px">Link to session recording</td><td id="AISX" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1fT-ucV_wxsPTXHTpPfaaNPoBkv7Lu02I/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-8089-8b34-f0fc4585244c" class=""><mark class="highlight-blue">Masterclass on Genomics Revolution in Cancer</mark></h3><table id="258644c0-3db9-8025-b3b1-c5f8fbe19f33" class="simple-table"><tbody><tr id="258644c0-3db9-80b3-a400-c14d2d2a90be"><td id="dfXb" class="" style="width:353.5px">Conducted by</td><td id="X?ON" class="" style="width:353.5px"><a href="https://www.fortishealthcare.com/doctors/dr-shrinidhi-nathany-11733">D</a>r Shrinidhi Nathany, Consultant - Molecular Haematology and Oncology</td></tr><tr id="258644c0-3db9-8056-9839-e248e8e4d86a"><td id="dfXb" class="" style="width:353.5px">Hospital</td><td id="X?ON" class="" style="width:353.5px">Fortis Memorial Research Institute, Gurgaon</td></tr><tr id="258644c0-3db9-80e8-91c0-d31e616de2ed"><td id="dfXb" class="" style="width:353.5px">Date</td><td id="X?ON" class="" style="width:353.5px">19 January 2025</td></tr><tr id="258644c0-3db9-80cb-8894-e5a94473b58a"><td id="dfXb" class="" style="width:353.5px">Link to session recording</td><td id="X?ON" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/15Uqyd4JSVrsmEzV4hJNbrLUb2LJolDRx/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-80f7-b6d5-c3f26ab606f3" class=""><mark class="highlight-blue">Masterclass on Transforming Cardiac Care- Advances in Diagnosis, Surgery and Management</mark></h3><table id="258644c0-3db9-8037-a3ee-dbf48739da5f" class="simple-table"><tbody><tr id="258644c0-3db9-8083-b7a5-c4374165da2c"><td id="mqG|" class="" style="width:353.5px">Conducted by</td><td id="MtJE" class="" style="width:353.5px">Dr. Ajay Kaul, Chairman - Cardiac Science</td></tr><tr id="258644c0-3db9-80e7-a29f-dea592994ae1"><td id="mqG|" class="" style="width:353.5px">Hospital</td><td id="MtJE" class="" style="width:353.5px">Fortis Hospital, Noida</td></tr><tr id="258644c0-3db9-804a-a4fa-f68911ca2fec"><td id="mqG|" class="" style="width:353.5px">Date</td><td id="MtJE" class="" style="width:353.5px">1 December 2024</td></tr><tr id="258644c0-3db9-80bf-ac4b-d045642b4825"><td id="mqG|" class="" style="width:353.5px">Link to session recording</td><td id="MtJE" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1HxNeebXaO05p1F0JltYLGQg2KZy273tZ/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-8076-9cb3-f7ee27d9764b" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Sickle Cell Disease</mark></h3><table id="258644c0-3db9-8007-937e-e3389a57168d" class="simple-table"><tbody><tr id="258644c0-3db9-8046-be6e-e29b262af28e"><td id="EuO&gt;" class="" style="width:353.5px">Conducted by</td><td id="UAVp" class="" style="width:353.5px">Dr. Divya Doval, Senior Consultant - Bone Marrow Transplant, Hematology Oncology</td></tr><tr id="258644c0-3db9-80ce-8ef4-e3ba942f36a3"><td id="EuO&gt;" class="" style="width:353.5px">Hospital</td><td id="UAVp" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="258644c0-3db9-8059-87c9-f66474cc6958"><td id="EuO&gt;" class="" style="width:353.5px">Date</td><td id="UAVp" class="" style="width:353.5px">24 November 2024</td></tr><tr id="258644c0-3db9-801f-8e88-ed97b0fc5e8c"><td id="EuO&gt;" class="" style="width:353.5px">Link to session recording</td><td id="UAVp" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1tmW-Lkzia3-ztppor0G6b5eVy2KPpb0S/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-803c-a9fc-c06ec10b3e19" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Breast Cancer</mark></h3><table id="258644c0-3db9-80d0-bb8a-db367bdcead7" class="simple-table"><tbody><tr id="258644c0-3db9-801a-9ba5-ff240f7af1dd"><td id="IbGW" class="" style="width:353.5px">Conducted by</td><td id="@u|w" class="" style="width:353.5px">Dr. Jalaj Baxi, Senior Consultant - Surgical Oncology</td></tr><tr id="258644c0-3db9-8021-87b9-f36c89b89116"><td id="IbGW" class="" style="width:353.5px">Hospital</td><td id="@u|w" class="" style="width:353.5px">Fortis Hospital, Noida</td></tr><tr id="258644c0-3db9-80eb-bc48-da5fccd4f4e1"><td id="IbGW" class="" style="width:353.5px">Date</td><td id="@u|w" class="" style="width:353.5px">17 November 2024</td></tr><tr id="258644c0-3db9-8020-be8b-e340ec527495"><td id="IbGW" class="" style="width:353.5px">Link to session recording</td><td id="@u|w" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1a1A4vc0hAVX6ReEtfMUG1nMnHybiMcKe/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-8006-9197-c8ea01d606f0" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Ovarian Cysts</mark></h3><table id="258644c0-3db9-8028-b05b-d58e86d13156" class="simple-table"><tbody><tr id="258644c0-3db9-8070-9676-ced456d15567"><td id="h;]p" class="" style="width:353.5px">Conducted by</td><td id="e^ug" class="" style="width:353.5px">Dr. Renu Raina Sehgal, Chairperson - Department of Obstetrics &amp; Gynaecology</td></tr><tr id="258644c0-3db9-80d9-9dbe-d4e7f96e3501"><td id="h;]p" class="" style="width:353.5px">Hospital</td><td id="e^ug" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="258644c0-3db9-80e6-8905-d0135ddfd6bc"><td id="h;]p" class="" style="width:353.5px">Date</td><td id="e^ug" class="" style="width:353.5px">10 November 2024</td></tr><tr id="258644c0-3db9-809e-98e9-e1cb5cbc9276"><td id="h;]p" class="" style="width:353.5px">Link to the session presentation</td><td id="e^ug" class="" style="width:353.5px"><a href="https://docs.google.com/presentation/d/1S16wSv377h886sczu-BERo-h4L4eEZgjbACsA2GMCnI/edit?usp=sharing">Masterclass Presentation</a></td></tr></tbody></table><h3 id="258644c0-3db9-8047-aa43-f8c68dc5a31b" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Right Colon Cancer</mark></h3><table id="258644c0-3db9-80f9-946c-ce8784eee0c9" class="simple-table"><tbody><tr id="258644c0-3db9-8059-90e7-c9d74a5bf2e3"><td id="WHqm" class="" style="width:353.5px">Conducted by</td><td id="ytf=" class="" style="width:353.5px">Dr. Ravindra Vats, Senior Director - Surgical Gastroenterology, Advance Laparoscopic &amp; Bariatric Surgery</td></tr><tr id="258644c0-3db9-8059-a873-d5a2049437a2"><td id="WHqm" class="" style="width:353.5px">Hospital</td><td id="ytf=" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="258644c0-3db9-801c-b102-d30238b7f135"><td id="WHqm" class="" style="width:353.5px">Date</td><td id="ytf=" class="" style="width:353.5px">27 October 2024</td></tr><tr id="258644c0-3db9-8019-a709-c3b2062295ce"><td id="WHqm" class="" style="width:353.5px">Link to the session presentation</td><td id="ytf=" class="" style="width:353.5px"><a href="https://docs.google.com/presentation/d/1m-Z8jsnXFIa2Yrvjk2KoSuV4Wc18rCq6FiKdEtsw5Wk/edit?usp=sharing">Masterclass Presentation</a></td></tr></tbody></table><h3 id="258644c0-3db9-80d1-bece-cfc531b559b2" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Kidney Tumour</mark></h3><table id="258644c0-3db9-8009-95ff-c567bf1346b3" class="simple-table"><tbody><tr id="258644c0-3db9-8020-87c5-e8badfcbfb14"><td id="ileF" class="" style="width:353.5px">Conducted by</td><td id="VO@h" class="" style="width:353.5px">Dr. Amit Bansal, Senior Consultant &amp; Unit Head - Urology</td></tr><tr id="258644c0-3db9-8036-8b33-f63380c2dd83"><td id="ileF" class="" style="width:353.5px">Hospital</td><td id="VO@h" class="" style="width:353.5px">Fortis Vasant Kunj, New Delhi</td></tr><tr id="258644c0-3db9-805c-9b32-f3046ad5071a"><td id="ileF" class="" style="width:353.5px">Date</td><td id="VO@h" class="" style="width:353.5px">20 October 2024</td></tr><tr id="258644c0-3db9-806f-a325-f9b98a394711"><td id="ileF" class="" style="width:353.5px">Link to the session presentation</td><td id="VO@h" class="" style="width:353.5px"><a href="https://docs.google.com/presentation/d/1dSs2Co7hhdgHj6_8r5s8WptujWOAk4L9w5t-V_HsI0I/edit?usp=sharing">Masterclass Presentation</a></td></tr></tbody></table><h3 id="258644c0-3db9-8032-a165-d784f0b501f9" class=""><mark class="highlight-blue">Masterclass on Making Spine Surgery 100% Safe</mark></h3><table id="258644c0-3db9-80b1-92a4-dcc23aeee78c" class="simple-table"><tbody><tr id="258644c0-3db9-80de-8c30-e08bac9f718b"><td id="i_Eu" class="" style="width:353.5px">Conducted by</td><td id="k{nI" class="" style="width:353.5px">Dr. SK. Rajan, Chief - Neuro Spine Surgery &amp; Additional Director - Neurosurgery</td></tr><tr id="258644c0-3db9-80af-a83e-cce4fd9d41a7"><td id="i_Eu" class="" style="width:353.5px">Hospital</td><td id="k{nI" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="258644c0-3db9-8023-807f-ff3c30e41e34"><td id="i_Eu" class="" style="width:353.5px">Date</td><td id="k{nI" class="" style="width:353.5px">15 September 2024</td></tr><tr id="258644c0-3db9-80ee-bf35-edeba481820e"><td id="i_Eu" class="" style="width:353.5px">Link to session recording</td><td id="k{nI" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1O_8pE7gxAKxrMHG6yo2AoHFpM7xzk2rP/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-809c-8d83-cc8842e9567b" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Rheumatoid Arthritis</mark></h3><table id="258644c0-3db9-805a-ada3-c4d376f16f0c" class="simple-table"><tbody><tr id="258644c0-3db9-80d7-b6aa-dd22021787d1"><td id="x]n}" class="" style="width:353.5px">Conducted by</td><td id="XqRt" class="" style="width:353.5px">Dr. Sajal Ajmani, Consultant - Rheumatology</td></tr><tr id="258644c0-3db9-800c-943b-e022ab353acf"><td id="x]n}" class="" style="width:353.5px">Hospital</td><td id="XqRt" class="" style="width:353.5px">Manipal Hospital, New Delhi</td></tr><tr id="258644c0-3db9-80b9-bef0-d3ee572f764e"><td id="x]n}" class="" style="width:353.5px">Date</td><td id="XqRt" class="" style="width:353.5px">1 September 2024</td></tr><tr id="258644c0-3db9-8085-988b-d778dcd6ab9e"><td id="x]n}" class="" style="width:353.5px">Link to session recording</td><td id="XqRt" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/17u8EKOvw_6_8XfMqC4uh5dhBXP4CHrAA/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-80fe-8077-d83d1f34712f" class=""><mark class="highlight-blue">Masterclass on Benign Growth in Uterus Causing Gynaecological Problems</mark></h3><table id="258644c0-3db9-80ba-bf75-dc57a7837978" class="simple-table"><tbody><tr id="258644c0-3db9-8012-8945-e2388fd12d27"><td id="_I`w" class="" style="width:353.5px">Conducted by</td><td id="S}gA" class="" style="width:353.5px">Dr. Suman Lal, Senior Director &amp; Unit Head- Obstetrics And Gynaecology, Robotic Surgery, Gynaecologic Laparoscopy, Pregnancy Management</td></tr><tr id="258644c0-3db9-805d-b494-f3a13c2173d8"><td id="_I`w" class="" style="width:353.5px">Hospital</td><td id="S}gA" class="" style="width:353.5px">Max Hospital, Gurgaon</td></tr><tr id="258644c0-3db9-8081-be56-dd865c7a4450"><td id="_I`w" class="" style="width:353.5px">Date</td><td id="S}gA" class="" style="width:353.5px">25 August 2024</td></tr><tr id="258644c0-3db9-8087-be97-c3d89c529e5a"><td id="_I`w" class="" style="width:353.5px">Link to session recording</td><td id="S}gA" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1U09LqaWQVSvDF5P0IrN9LBVbIInM2Ej8/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-808f-883e-e108a8601c00" class=""><mark class="highlight-blue">Masterclass on Aortic Dissection: Presentation, Treatment and Complications</mark></h3><table id="258644c0-3db9-80bb-a074-e314f4416426" class="simple-table"><tbody><tr id="258644c0-3db9-8065-9264-f9aeebedadaf"><td id="~n]?" class="" style="width:353.5px">Conducted by</td><td id=";]f\" class="" style="width:353.5px">Dr. Dinesh Kumar Mittal, Senior Director &amp; HOD - Cardiothoracic &amp; Vascular Surgery</td></tr><tr id="258644c0-3db9-80fa-bb4a-c06eeaee75ec"><td id="~n]?" class="" style="width:353.5px">Hospital</td><td id=";]f\" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="258644c0-3db9-80af-b3cb-c57643d9a1f2"><td id="~n]?" class="" style="width:353.5px">Date</td><td id=";]f\" class="" style="width:353.5px">18 August 2024</td></tr><tr id="258644c0-3db9-8064-9db0-f700932e38b7"><td id="~n]?" class="" style="width:353.5px">Link to session recording</td><td id=";]f\" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1nDOs5wLiDakHiYKzqzdOMa7yYK7gQuRs/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-801c-89c6-e8c0bff789e6" class=""><mark class="highlight-blue">Masterclass on Liver Transplant</mark></h3><table id="258644c0-3db9-8012-b835-c7e2b72f007b" class="simple-table"><tbody><tr id="258644c0-3db9-8089-9ade-f75be2a04cd4"><td id="SwO_" class="" style="width:353.5px">Conducted by</td><td id="HS;L" class="" style="width:353.5px">Dr. Ashish George, Principal Consultant &amp; Unit Head - Liver Transplant</td></tr><tr id="258644c0-3db9-80c9-8d6c-ccbecaeefa1f"><td id="SwO_" class="" style="width:353.5px">Hospital</td><td id="HS;L" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="258644c0-3db9-8084-b377-f7674625a5a2"><td id="SwO_" class="" style="width:353.5px">Date</td><td id="HS;L" class="" style="width:353.5px">11 August 2024</td></tr><tr id="258644c0-3db9-8026-a4ae-f75271046b70"><td id="SwO_" class="" style="width:353.5px">Link to session recording</td><td id="HS;L" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1WzkEYM6jmM73buzqjMMOh222TalAgZit/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-8066-9f0b-effefe74e5dd" class=""><mark class="highlight-blue">Masterclass on Adolescent Idiopathic Scoliosis</mark></h3><table id="258644c0-3db9-8073-8226-d4900f61f125" class="simple-table"><tbody><tr id="258644c0-3db9-8026-b2ca-ea0690df0389"><td id="ttn{" class="" style="width:353.5px">Conducted by</td><td id="nILL" class="" style="width:353.5px">Dr. Manoj Miglani, Principal Director - Orthopaedics</td></tr><tr id="258644c0-3db9-8029-b327-c5fb665b9b33"><td id="ttn{" class="" style="width:353.5px">Hospital</td><td id="nILL" class="" style="width:353.5px">Fortis Vasant Kunj, New Delhi</td></tr><tr id="258644c0-3db9-80b7-bdf2-ee29b3945ae5"><td id="ttn{" class="" style="width:353.5px">Date</td><td id="nILL" class="" style="width:353.5px">4 August 2024</td></tr><tr id="258644c0-3db9-800d-bd59-d4a65d1d4cf9"><td id="ttn{" class="" style="width:353.5px">Link to session recording</td><td id="nILL" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1YtmOnqKzDyMbjDTZOOzM92y4rkJVoGf8/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-80a8-90a0-cd88ac5f22c2" class=""><mark class="highlight-blue">Masterclass on BMT in Sickle Cell Anaemia and Other Haematological Disorders</mark></h3><table id="258644c0-3db9-8006-9eb6-f5709afde808" class="simple-table"><tbody><tr id="258644c0-3db9-80d8-86d3-f1955b79d813"><td id="Y^Tq" class="" style="width:353.5px">Conducted by</td><td id="BfWG" class="" style="width:353.5px">Dr. Vikas Dua, Principal Director &amp; Head - Paediatric Haematology. Haemato Oncology &amp; Bone Marrow Transplant</td></tr><tr id="258644c0-3db9-80a6-8ebb-f8a35fcc8e99"><td id="Y^Tq" class="" style="width:353.5px">Hospital</td><td id="BfWG" class="" style="width:353.5px">Fortis Memorial Research Institute, Gurgaon</td></tr><tr id="258644c0-3db9-80b9-a157-d97c29161cf7"><td id="Y^Tq" class="" style="width:353.5px">Date</td><td id="BfWG" class="" style="width:353.5px">28 July 2024</td></tr><tr id="258644c0-3db9-80c3-9ec3-c60285ee0741"><td id="Y^Tq" class="" style="width:353.5px">Link to session recording</td><td id="BfWG" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1eOaVlrb5UX9zvQEVDViRgEZNwY5yFD0S/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="258644c0-3db9-80a2-9fea-d5307476832b" class=""><mark class="highlight-blue">Masterclass on IVF with ICSI, IVF with Egg Donor</mark></h3><table id="258644c0-3db9-8088-8b9f-c0967f5ee6da" class="simple-table"><tbody><tr id="258644c0-3db9-80d7-9318-f55782c8a057"><td id="nMuO" class="" style="width:353.5px">Conducted by</td><td id="[Xyp" class="" style="width:353.5px">Dr. Parul Prakash, Head - Reproductive Medicine (IVF)</td></tr><tr id="258644c0-3db9-80d1-83d7-c8a473a2a1be"><td id="nMuO" class="" style="width:353.5px">Hospital</td><td id="[Xyp" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="258644c0-3db9-8064-a013-f3bc91458637"><td id="nMuO" class="" style="width:353.5px">Date</td><td id="[Xyp" class="" style="width:353.5px">21 July 2024</td></tr><tr id="258644c0-3db9-80d5-b98a-f3f56bc9e41b"><td id="nMuO" class="" style="width:353.5px">Link to session recording</td><td id="[Xyp" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1iEIxZHB4fU0DC3LdNvqEmn7slD5Ugwv4/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="259644c0-3db9-80c5-bc2d-e5c6ad213cf7" class=""><mark class="highlight-blue">Masterclass on Hip Replacement, Knee Replacement, Revision Surgery &amp; Arthroscopies</mark></h3><table id="266644c0-3db9-804c-8f3d-dd698ff085b0" class="simple-table"><tbody><tr id="266644c0-3db9-80b9-bb16-ff6e53deb652"><td id="z[cJ" class="" style="width:353.5px">Conducted by</td><td id="uDem" class="" style="width:353.5px">Dr. Ramkinkar Jha, Chief and Unit Head - Orthopaedics</td></tr><tr id="266644c0-3db9-808c-befc-dc078740d213"><td id="z[cJ" class="" style="width:353.5px">Hospital</td><td id="uDem" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="266644c0-3db9-803f-8758-cb6cba24d458"><td id="z[cJ" class="" style="width:353.5px">Date</td><td id="uDem" class="" style="width:353.5px">14 July 2024</td></tr><tr id="266644c0-3db9-801e-b22e-fe9b71b71d25"><td id="z[cJ" class="" style="width:353.5px">Link to session recording</td><td id="uDem" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1IJcDUMifkLpsD4Hs3x_VPzPOPHm2ND80/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-80fe-9b25-f4d891073acf" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Prostate Cancer</mark></h3><table id="266644c0-3db9-8085-8abe-efeaab5e8248" class="simple-table"><tbody><tr id="266644c0-3db9-8028-ac9c-c82d38e349e2"><td id="lS&lt;&lt;" class="" style="width:353.5px">Conducted by</td><td id="q_:i" class="" style="width:353.5px">Dr.Nitin Shrivastava, Urology / Oncology</td></tr><tr id="266644c0-3db9-8084-ae00-e07b832f75b8"><td id="lS&lt;&lt;" class="" style="width:353.5px">Hospital</td><td id="q_:i" class="" style="width:353.5px">Artemis Hospital, Gurgaon</td></tr><tr id="266644c0-3db9-8004-ad17-e8150fb6dd58"><td id="lS&lt;&lt;" class="" style="width:353.5px">Date</td><td id="q_:i" class="" style="width:353.5px">7 July 2024</td></tr><tr id="266644c0-3db9-8067-b97f-eb21acab293a"><td id="lS&lt;&lt;" class="" style="width:353.5px">Link to session recording</td><td id="q_:i" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1C5_yVB5AmoNNPM5pUhDIMCzWav9XfYpf/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-80b4-bd50-c1deb742eaf9" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Management of Liver Cirrhosis</mark></h3><table id="266644c0-3db9-8011-adcc-d6e310ab563b" class="simple-table"><tbody><tr id="266644c0-3db9-8087-9222-d5b86a21b4c7"><td id="`Ymi" class="" style="width:353.5px">Conducted by</td><td id="wOZA" class="" style="width:353.5px">Dr. Sandeep Jha, Consultant Liver Transplant</td></tr><tr id="266644c0-3db9-80bc-8eed-d0e568dde559"><td id="`Ymi" class="" style="width:353.5px">Hospital</td><td id="wOZA" class="" style="width:353.5px">Manipal Hospital, New Delhi</td></tr><tr id="266644c0-3db9-8089-90d2-fc82c1e43840"><td id="`Ymi" class="" style="width:353.5px">Date</td><td id="wOZA" class="" style="width:353.5px">16 June 2024</td></tr><tr id="266644c0-3db9-80a0-92a5-e0a67c1b8302"><td id="`Ymi" class="" style="width:353.5px">Link to session recording</td><td id="wOZA" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/17NQiRaMfeRwZSA-MUulVzst7yQzENBzc/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-8000-b135-c6daaab218c2" class=""><mark class="highlight-blue">Masterclass on Brain Tumour</mark></h3><table id="266644c0-3db9-80d3-83c9-e57e345e1b83" class="simple-table"><tbody><tr id="266644c0-3db9-80aa-b1e6-ef82af84e78e"><td id="\&gt;pd" class="" style="width:353.5px">Conducted by</td><td id="KvX?" class="" style="width:353.5px">Dr. Sonal Gupta, Principal Director &amp; HOD - Neuro &amp; Spine Surgery</td></tr><tr id="266644c0-3db9-8039-99f1-cd3bda480448"><td id="\&gt;pd" class="" style="width:353.5px">Hospital</td><td id="KvX?" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="266644c0-3db9-80da-afc6-f83e699eb91e"><td id="\&gt;pd" class="" style="width:353.5px">Date</td><td id="KvX?" class="" style="width:353.5px">9 June 2024</td></tr><tr id="266644c0-3db9-80be-83a2-d4e23484209b"><td id="\&gt;pd" class="" style="width:353.5px">Link to session recording</td><td id="KvX?" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1NnqsomzigcJ2XYC01ZDYRfWNNJY6PUxn/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-803c-abbe-c0433a4684b3" class=""><mark class="highlight-blue">Masterclass on Acute Coronary Artery Disease</mark></h3><table id="266644c0-3db9-80d7-9fe2-c0bb8355d42d" class="simple-table"><tbody><tr id="266644c0-3db9-807f-95b6-ef0c0de383d1"><td id="\bNG" class="" style="width:353.5px">Conducted by</td><td id="rkzo" class="" style="width:353.5px">Dr. Vikas Thakran, Consultant, Interventional Cardiology </td></tr><tr id="266644c0-3db9-8033-947e-c3f6c265ce08"><td id="\bNG" class="" style="width:353.5px">Hospital</td><td id="rkzo" class="" style="width:353.5px">BLK Max Super Speciality Hospital New Delhi</td></tr><tr id="266644c0-3db9-80cc-8ff9-c639c74a5dd3"><td id="\bNG" class="" style="width:353.5px">Date</td><td id="rkzo" class="" style="width:353.5px">2 June 2024</td></tr><tr id="266644c0-3db9-80ae-9864-c0e7b37fbb2c"><td id="\bNG" class="" style="width:353.5px">Link to session recording</td><td id="rkzo" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1LjdzmN41LncpwlvDnKAwWr3W9NztggRf/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-8038-9def-ea073b7ce4f8" class=""><mark class="highlight-blue">Masterclass on Advances in Spinal Surgery Technology</mark></h3><table id="266644c0-3db9-8084-a5a7-c80fa7d86831" class="simple-table"><tbody><tr id="266644c0-3db9-8049-a8e5-f455d90371af"><td id="enAc" class="" style="width:353.5px">Conducted by</td><td id="PW&lt;i" class="" style="width:353.5px"><mark class="highlight-default">Dr. Puneet Girthar, </mark>Principal Director &amp; Head Ortho Spine, MIS &amp; Robotic Spine Surgery</td></tr><tr id="266644c0-3db9-802c-8191-d9a87b3744b7"><td id="enAc" class="" style="width:353.5px">Hospital</td><td id="PW&lt;i" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="266644c0-3db9-8070-bb78-ea7cb897357c"><td id="enAc" class="" style="width:353.5px">Date</td><td id="PW&lt;i" class="" style="width:353.5px">26 May 2024</td></tr><tr id="266644c0-3db9-8019-8a4a-c1b94db40f88"><td id="enAc" class="" style="width:353.5px">Link to session recording</td><td id="PW&lt;i" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1P2CIXKb0DfGO4dvypE13XYB9OzAH8Ax5/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-8081-a070-ded7af522766" class=""><mark class="highlight-blue">Masterclass on Diagnosis and Detection of Cancer </mark></h3><table id="266644c0-3db9-8030-86c0-f8a5f739e761" class="simple-table"><tbody><tr id="266644c0-3db9-802a-a0fb-d449348f874e"><td id="rrFP" class="" style="width:353.5px">Conducted by</td><td id="Xz]}" class="" style="width:353.5px">Dr. Mohit Agarwal, Principal Director &amp; Unit Head - Medical Oncology</td></tr><tr id="266644c0-3db9-8067-a251-df9dd68b2059"><td id="rrFP" class="" style="width:353.5px">Hospital</td><td id="Xz]}" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="266644c0-3db9-8011-b01f-e603e4084243"><td id="rrFP" class="" style="width:353.5px">Date</td><td id="Xz]}" class="" style="width:353.5px">19 May 2024</td></tr><tr id="266644c0-3db9-80c4-b7b2-fc675e812d2c"><td id="rrFP" class="" style="width:353.5px">Link to session recording</td><td id="Xz]}" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1L_avHWTofhcuOu-hBMeG1uTtec-4taN_/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-8068-b7bc-ef3a0a4ed865" class=""><mark class="highlight-blue">Masterclass on Recent Advances in Joint Replacement</mark></h3><table id="266644c0-3db9-8062-9950-d2d860c981db" class="simple-table"><tbody><tr id="266644c0-3db9-80b7-872e-fb41e01e9ca9"><td id="CXl~" class="" style="width:353.5px">Conducted by</td><td id="f^Pn" class="" style="width:353.5px">Dr Ishwar Bohra, Senior Director - Joint Replacement Programme</td></tr><tr id="266644c0-3db9-80a1-994b-fdbbc4f83684"><td id="CXl~" class="" style="width:353.5px">Hospital</td><td id="f^Pn" class="" style="width:353.5px">BLK-Max Super Speciality Hospital<mark class="highlight-default">, New Delhi</mark></td></tr><tr id="266644c0-3db9-80de-8e56-eb24c528a72e"><td id="CXl~" class="" style="width:353.5px">Date</td><td id="f^Pn" class="" style="width:353.5px">12 May 2024</td></tr><tr id="266644c0-3db9-802a-9c00-d2c6b3fc8ea0"><td id="CXl~" class="" style="width:353.5px">Link to session recording</td><td id="f^Pn" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1Y_9rj9u2pMz1E3Pa7u3HIcd7jCLsVP5A/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><h3 id="266644c0-3db9-80ca-b948-f5887c34fec0" class=""><mark class="highlight-blue">Masterclass on Prostate Cancer</mark></h3><table id="266644c0-3db9-80dd-929f-ee725d54dfe5" class="simple-table"><tbody><tr id="266644c0-3db9-80bf-b80e-d6dcc0fa8033"><td id="bb]x" class="" style="width:353.5px">Conducted by</td><td id="^hLC" class="" style="width:353.5px">Dr. Anurag Puri, Additional Director - Urology</td></tr><tr id="266644c0-3db9-80f6-8bd9-efbb21a9c94f"><td id="bb]x" class="" style="width:353.5px">Hospital</td><td id="^hLC" class="" style="width:353.5px">Fortis Hospital Shalimar Bagh, New Delhi</td></tr><tr id="266644c0-3db9-8029-bf0c-d9e070f8a0c9"><td id="bb]x" class="" style="width:353.5px">Date</td><td id="^hLC" class="" style="width:353.5px">5 May 2024</td></tr><tr id="266644c0-3db9-801e-b8f6-e51cd8cc776e"><td id="bb]x" class="" style="width:353.5px">Link to session recording</td><td id="^hLC" class="" style="width:353.5px"><a href="https://drive.google.com/file/d/1P5Fn3Tpa-q0nL84Z6utsjKjYDNqOHSA5/view?usp=sharing">Masterclass Zoom Session Recording</a></td></tr></tbody></table><p id="266644c0-3db9-8045-9742-cd25704d7efe" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+        <div class="masterclass-entry">
+            <h3>Masterclass on Cancer: Myths Facts and Advances</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Mohit Agarwal, Principal Director &amp; Unit Head - Medical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>7 September 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1eIA9lQtI1QEp8J86RCMphgGYbT8x7GTX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Correct Timing for Congenital Heart Surgery</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Aseem R. Srivastava, Chief - Paediatric CTVS</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>31 August 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1L7i0GTYqR7cpe2X0dO7FMq28S7ohdfqW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+        
+        <div class="masterclass-entry">
+            <h3>Masterclass on Thoracic Surgery: Basics to Robotics</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Shaiwal Khandelwal, Director - Thoracic Surgery</td></tr>
+                <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>24 August 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1PnDGGdqLMHUWZ2kl5HsRllF96WdWuqNT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Pre IVF workups and corrective surgeries - How GPs can kickstart infertility care</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Shelley Singh, Director - Obstetrics &amp; Gynaecology</td></tr>
+                <tr><td>Hospital</td><td>Fortis La Femme Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>17 August 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1fbXnNOrG7PoVTeznhJia4G1yej43PmMf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Spinal Surgery: Advances in Techniques &amp; Technology for Excellent Patient Outcomes</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Puneet Girdhar, Principal Director &amp; Head Ortho Spine, MIS &amp; Robotic Spine Surgery</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>10 August 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1b1Whh9JMEA6_ywXZhBvpD4cS0e7PMa0R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Plastic Surgery : From Reconstructions to Aesthetics</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Pradeep Kumar Singh, Head - Cosmetic &amp; Plastic Surgery</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>27 July 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1B-GX-uwV5sGFyMdUhz1xjDExHbFgO-Ui/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Basics of Living Donor Liver Transplant</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Sandeep Jha, Senior Consultant HPB Surgery &amp; Liver Transplant</td></tr>
+                <tr><td>Hospital</td><td>Shalby Sanar International Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>20 July 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1-70JP4QGylYzkKwANmyAaOjTwrX4h7-8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Recent Advances in Neurosurgery</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Anil Kumar Kansal, Principal Director &amp; HOD - Neurosurgery &amp; Neuro Spine Department</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>13 July 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1ylvxW0HV5tAsRYJZ8Hk3aDXeHh2UlSx6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis &amp; Management of Prostate Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Shafiq Ahmed, Director - Urology, Andrology &amp; Renal Transplant</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>6 July 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1Jltrn-44x265fqjCBQIE2hXClN-d8SPg/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis &amp; Management of Epilepsy &amp; Seizures</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Dinesh Rattnani, Senior Director - Neurosurgery, Neuro Critical Care &amp; Spine Surgery</td></tr>
+                <tr><td>Hospital</td><td>Max Super Speciality Hospital, Noida</td></tr>
+                <tr><td>Date</td><td>29 June 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1wiVSmoYA4GJ9OIAqytVqYsrtEgdu6sZH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Advanced Treatments in Gynaec Oncology</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Archit Pandit, Director - Surgical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Escorts Hospital New Delhi</td></tr>
+                <tr><td>Date</td><td>22 June 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1KMjZPRDA0Rb1SO_T-9dUgQa7unLDZbtE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Rectum Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Kaushal Kishore Yadav, Associate Director &amp; Unit Head – Surgical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Max Hospital Gurgaon</td></tr>
+                <tr><td>Date</td><td>15 June 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1hcAFJdfneK_95QKQVKgYFUW01pHCD5XO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Advances in Chronic Pain Management</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Ashu Kumar Jain, Head - Pain Medicine &amp; Palliative Care</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>8 June 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/13Ch8aLw7524Dr25xxziBb-pAkwWYOaOX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Ischemic Heart Disease</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Rohit Goel, Principal Consultant - Cardiology</td></tr>
+                <tr><td>Hospital</td><td>Max Hospital Gurgaon</td></tr>
+                <tr><td>Date</td><td>1 June 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1C0LjTTedKbjlLN0GXsOc0aXa7bg9vy3C/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on From Detection to Recovery: Navigating the Future of Cancer Care</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Nithin S G, Consultant - Medical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
+                <tr><td>Date</td><td>11 May 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1CMJ-34BjC31RiKLZRnIfOqzinNhquqUc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Obesity and Metabolic Syndrome: The Role of Bariatric Surgery</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Rakesh Durkhure, Head - General, MI &amp; Bariatric Surgery</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>4 May 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1RFOb5W1uQdVPYaCFo_1JKRiUperHua3_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis &amp; Management of Degenerative Joint Disease</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Ishwar Bohra, Senior Director - Joint Replacement Programme</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>27 April 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1kibi8NyO9KoB4lLAg4CTVdEevhWAKrrZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Prostate cancer: Diagnosis and Management</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Amit Goel, Director and Head of Unit - Renal Transplant, Uro-oncology, Urology &amp; Robotic Surgery</td></tr>
+                <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>20 April 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1OIzL0zLLB4qAkDp_e_eCaldW5811SCvb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Recent advances in Joint Replacement and Sports Injury</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Subhash Jangid, Senior Director Orthopaedics &amp; Joint Reconstruction</td></tr>
+                <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
+                <tr><td>Date</td><td>13 April 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1egaqC8ZZpd9yn_Y7pcofJOZ-CFl8uZZt/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Spectrum of Orthopaedic Disorder - Evaluation and Management</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Rohit Lamba, HOD - Orthopaedics &amp; Joint Replacement</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>6 April 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1qAaN3BZPnxUZQjvkhBQSCe8LpYHAv8NM/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Tuberculosis &amp; HIV - An Insight</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Neha Rastogi Panda, Senior Consultant - Infectious Diseases</td></tr>
+                <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
+                <tr><td>Date</td><td>30 March 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1NJxqamTahJMYY7-AV52jBN9h9Z_HDS1R/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Early-Stage Lung Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Arvind Kumar Koslia - Associate Consultant</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>23 March 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1nPSwqWc0SaCWS2A0-fES29PFCRRzyhj1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Esophageal Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Preeti Vijayakumaran, Consultant - Surgical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>16 March 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1DNlGlLNBGsa-pGvLMyNAUUjRWiXGJGQV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on CAR-T Cell Therapy</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Akash Khandelwal, Consultant - Haemato-Oncology &amp; BMT</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>9 March 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1Wmq_O70BS4dqaMUJaqZGOkOU2GuceXK_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Breast Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Sahil Bambroo, Consultant - Medical Oncology</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>2 March 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1TEtR-mmqwySIwhJJtelup3X3xg1N5c-a/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Minimally Invasive Surgery in Gynaecology</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Bandana Sodhi, Director - Obstetrics &amp; Gynaecology</td></tr>
+                <tr><td>Hospital</td><td>Fortis La Femme Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>23 February 2025</td></tr>
+            </tbody></table>
+            <a href="https://docs.google.com/presentation/d/1HoRx7PJWR3tjHsSIg9LqwO3ep4QUDcIw/edit?usp=sharing&ouid=106949530277448701890&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Peroral Endoscopic Myotomy in Achalasia Cardia</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Bimal Sahu, Senior Consultant and Unit Head - Department of Gastroenterology</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>16 February 2025</td></tr>
+            </tbody></table>
+            <a href="https://docs.google.com/presentation/d/1Apvk_LPNldv7QtoAtRJ9ykhCVAfAEu2Zf-jNzbCRK7U/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Brain Tumour</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Rahul Gupta, Senior Director &amp; HOD - Neurosurgery</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
+                <tr><td>Date</td><td>9 February 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1fNrhe5VWKUmOrTs0URh03e2far3l6913/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Arthritis in Joints</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Mannu Bhatia, Associate Director - Centre for Orthopaedics</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>2 February 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1C-s-5NdbFhyWNGe4SAP7u1iuQGw-UTaY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Robotic Assisted Cardiac Surgery</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Yugal Kishore Mishra, Chairman - Manipal Institute of Cardiac Sciences</td></tr>
+                <tr><td>Hospital</td><td>Manipal Hospitals, New Delhi</td></tr>
+                <tr><td>Date</td><td>26 January 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1fT-ucV_wxsPTXHTpPfaaNPoBkv7Lu02I/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Genomics Revolution in Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Shrinidhi Nathany, Consultant - Molecular Haematology and Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
+                <tr><td>Date</td><td>19 January 2025</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/15Uqyd4JSVrsmEzV4hJNbrLUb2LJolDRx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Transforming Cardiac Care- Advances in Diagnosis, Surgery and Management</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Ajay Kaul, Chairman - Cardiac Science</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
+                <tr><td>Date</td><td>1 December 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1HxNeebXaO05p1F0JltYLGQg2KZy273tZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Sickle Cell Disease</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Divya Doval, Senior Consultant - Bone Marrow Transplant, Hematology Oncology</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>24 November 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1tmW-Lkzia3-ztppor0G6b5eVy2KPpb0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Breast Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Jalaj Baxi, Senior Consultant - Surgical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital, Noida</td></tr>
+                <tr><td>Date</td><td>17 November 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1a1A4vc0hAVX6ReEtfMUG1nMnHybiMcKe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Ovarian Cysts</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Renu Raina Sehgal, Chairperson - Department of Obstetrics &amp; Gynaecology</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>10 November 2024</td></tr>
+            </tbody></table>
+            <a href="https://docs.google.com/presentation/d/1S16wSv377h886sczu-BERo-h4L4eEZgjbACsA2GMCnI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Right Colon Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Ravindra Vats, Senior Director - Surgical Gastroenterology, Advance Laparoscopic &amp; Bariatric Surgery</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>27 October 2024</td></tr>
+            </tbody></table>
+            <a href="https://docs.google.com/presentation/d/1m-Z8jsnXFIa2Yrvjk2KoSuV4Wc18rCq6FiKdEtsw5Wk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Kidney Tumour</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Amit Bansal, Senior Consultant &amp; Unit Head - Urology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
+                <tr><td>Date</td><td>20 October 2024</td></tr>
+            </tbody></table>
+            <a href="https://docs.google.com/presentation/d/1dSs2Co7hhdgHj6_8r5s8WptujWOAk4L9w5t-V_HsI0I/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Presentation</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Making Spine Surgery 100% Safe</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. SK. Rajan, Chief - Neuro Spine Surgery &amp; Additional Director - Neurosurgery</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>15 September 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1O_8pE7gxAKxrMHG6yo2AoHFpM7xzk2rP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Rheumatoid Arthritis</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Sajal Ajmani, Consultant - Rheumatology</td></tr>
+                <tr><td>Hospital</td><td>Manipal Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>1 September 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/17u8EKOvw_6_8XfMqC4uh5dhBXP4CHrAA/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Benign Growth in Uterus Causing Gynaecological Problems</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Suman Lal, Senior Director &amp; Unit Head- Obstetrics And Gynaecology, Robotic Surgery, Gynaecologic Laparoscopy, Pregnancy Management</td></tr>
+                <tr><td>Hospital</td><td>Max Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>25 August 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1U09LqaWQVSvDF5P0IrN9LBVbIInM2Ej8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Aortic Dissection: Presentation, Treatment and Complications</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Dinesh Kumar Mittal, Senior Director &amp; HOD - Cardiothoracic &amp; Vascular Surgery</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>18 August 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1nDOs5wLiDakHiYKzqzdOMa7yYK7gQuRs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Liver Transplant</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Ashish George, Principal Consultant &amp; Unit Head - Liver Transplant</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>11 August 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1WzkEYM6jmM73buzqjMMOh222TalAgZit/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Adolescent Idiopathic Scoliosis</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Manoj Miglani, Principal Director - Orthopaedics</td></tr>
+                <tr><td>Hospital</td><td>Fortis Vasant Kunj, New Delhi</td></tr>
+                <tr><td>Date</td><td>4 August 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1YtmOnqKzDyMbjDTZOOzM92y4rkJVoGf8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on BMT in Sickle Cell Anaemia and Other Haematological Disorders</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Vikas Dua, Principal Director &amp; Head - Paediatric Haematology. Haemato Oncology &amp; Bone Marrow Transplant</td></tr>
+                <tr><td>Hospital</td><td>Fortis Memorial Research Institute, Gurgaon</td></tr>
+                <tr><td>Date</td><td>28 July 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1eOaVlrb5UX9zvQEVDViRgEZNwY5yFD0S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on IVF with ICSI, IVF with Egg Donor</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Parul Prakash, Head - Reproductive Medicine (IVF)</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>21 July 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1iEIxZHB4fU0DC3LdNvqEmn7slD5Ugwv4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Hip Replacement, Knee Replacement, Revision Surgery &amp; Arthroscopies</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Ramkinkar Jha, Chief and Unit Head - Orthopaedics</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>14 July 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1IJcDUMifkLpsD4Hs3x_VPzPOPHm2ND80/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Prostate Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr.Nitin Shrivastava, Urology / Oncology</td></tr>
+                <tr><td>Hospital</td><td>Artemis Hospital, Gurgaon</td></tr>
+                <tr><td>Date</td><td>7 July 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1C5_yVB5AmoNNPM5pUhDIMCzWav9XfYpf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Management of Liver Cirrhosis</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Sandeep Jha, Consultant Liver Transplant</td></tr>
+                <tr><td>Hospital</td><td>Manipal Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>16 June 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/17NQiRaMfeRwZSA-MUulVzst7yQzENBzc/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Brain Tumour</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Sonal Gupta, Principal Director &amp; HOD - Neuro &amp; Spine Surgery</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>9 June 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1NnqsomzigcJ2XYC01ZDYRfWNNJY6PUxn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Acute Coronary Artery Disease</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Vikas Thakran, Consultant, Interventional Cardiology</td></tr>
+                <tr><td>Hospital</td><td>BLK Max Super Speciality Hospital New Delhi</td></tr>
+                <tr><td>Date</td><td>2 June 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1LjdzmN41LncpwlvDnKAwWr3W9NztggRf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Advances in Spinal Surgery Technology</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Puneet Girthar, Principal Director &amp; Head Ortho Spine, MIS &amp; Robotic Spine Surgery</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>26 May 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1P2CIXKb0DfGO4dvypE13XYB9OzAH8Ax5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Diagnosis and Detection of Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Mohit Agarwal, Principal Director &amp; Unit Head - Medical Oncology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>19 May 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1L_avHWTofhcuOu-hBMeG1uTtec-4taN_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Recent Advances in Joint Replacement</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr Ishwar Bohra, Senior Director - Joint Replacement Programme</td></tr>
+                <tr><td>Hospital</td><td>BLK-Max Super Speciality Hospital, New Delhi</td></tr>
+                <tr><td>Date</td><td>12 May 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1Y_9rj9u2pMz1E3Pa7u3HIcd7jCLsVP5A/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+        <div class="masterclass-entry">
+            <h3>Masterclass on Prostate Cancer</h3>
+            <table class="details-table"><tbody>
+                <tr><td>Conducted by</td><td>Dr. Anurag Puri, Additional Director - Urology</td></tr>
+                <tr><td>Hospital</td><td>Fortis Hospital Shalimar Bagh, New Delhi</td></tr>
+                <tr><td>Date</td><td>5 May 2024</td></tr>
+            </tbody></table>
+            <a href="https://drive.google.com/file/d/1P5Fn3Tpa-q0nL84Z6utsjKjYDNqOHSA5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View Session Recording</a>
+        </div>
+
+    </div>
+</article></body></html>
+
