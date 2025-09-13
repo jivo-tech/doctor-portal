@@ -1,195 +1,172 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Jivo Patient Stories</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Jivo Patient Stories</title>
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
+<style>
+/* ---------- base reset ---------- */
+html { -webkit-print-color-adjust: exact; }
+*,*::before,*::after { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+html,body { margin: 0; padding: 0; }
+
+/* ---------- layout ---------- */
 @media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
+  body { margin: 2em auto; max-width: 900px; color: rgb(55,53,47); }
 }
 
 body {
-	line-height: 1.5;
-	white-space: pre-wrap;
+  line-height: 1.5;
+  /* white-space: pre-wrap;  ← removed to eliminate extra gaps */
+  font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 
-a,
-a.visited {
-	color: #3751FE;
-    font-weight: 600;
-    text-decoration: none;
+/* ---------- links ---------- */
+a { color: #3751FE; font-weight: 600; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- headings ---------- */
+h1,h2,h3 {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;   /* we’ll control spacing below */
 }
 
-a:hover {
-    text-decoration: underline;
+.page-title { font-size: 2.5rem; margin-bottom: .75rem; }
+
+.story-title {              /* patient-story headings */
+  font-size: 1.625rem;      /* slightly smaller than page title */
+  margin: 1.25rem 0 .5rem;  /* tight top & bottom */
 }
 
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
+/* ---------- text ---------- */
+p { margin: .5em 0; }
 
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
+/* ---------- divider ---------- */
 hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-    margin-top: 2em;
-    margin-bottom: 1em;
+  border: none;
+  border-bottom: 1px solid rgba(55,53,47,.09);
+  margin: 1.5rem 0 .75rem;
 }
 
-img {
-	max-width: 100%;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-
+/* ---------- banner image ---------- */
 .cover-image {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1.5em;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
 }
 
-/* Styles for the responsive video embed */
+/* ---------- video ---------- */
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    margin-top: 1em;
-    border-radius: 8px;
+  position: relative;
+  padding-bottom: 56.25%;   /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border-radius: 8px;
 }
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 }
-	
-</style></head><body><article class="page sans">
-    <header>
-        <img src="/jivo-hub/remuneration-structure.webp" alt="Jivo Patient Stories Banner" class="cover-image"/>
-        <h1 class="page-title">Jivo Patient Stories</h1>
-    </header>
-    <div class="page-body">
 
-        <h1 id="258644c0-3db9-80fc-97b9-e90f06087404">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Ngimbi Cosmac)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/eoRd_tJZ1oo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+/* ---------- body wrapper ---------- */
+.page-body { margin-top: 1.25rem; }
+</style>
+</head>
 
-        <hr/>
+<body>
+<article class="page sans">
+  <header>
+    <img src="/jivo-hub/remuneration-structure.webp"
+         alt="Jivo Patient Stories Banner"
+         class="cover-image">
+    <h1 class="page-title">Jivo Patient Stories</h1>
+  </header>
 
-        <h1 id="258644c0-3db9-8089-b577-e6863345e319">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms. Zalizate)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/FE2AG8StEqQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <hr/>
+  <div class="page-body">
 
-        <h1 id="267644c0-3db9-806f-9605-f0a61ebdf88d">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr. Didier Basanga)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/OxhDSNvskUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <hr/>
-
-        <h1 id="267644c0-3db9-8064-9b61-cbd69b1b2d25">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr. Nsiku Bob)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/yHW8kizb-Gw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <hr/>
-
-        <h1 id="267644c0-3db9-80f4-ba50-f918af9d0ff0">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr. Nkiambi)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/6lJ3nhdFn0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <hr/>
-
-        <h1 id="267644c0-3db9-8029-a60b-cee2962754de">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr. Bitha Zindi)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/lpdaoun1UTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <hr/>
-
-        <h1 id="267644c0-3db9-8002-8383-ea68b3f85e9b">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms. Lesley)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/Mg9u9KdUqEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <hr/>
-
-        <h1 id="267644c0-3db9-805b-8629-c182daad5a8d">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr. Shukulu)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/wOYwDKcDqH8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <hr/>
-
-        <h1 id="267644c0-3db9-800f-b850-eb7f5fd0186d">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms. Consolata)</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dlS2XEvRrn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Ngimbi Cosmac)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/eoRd_tJZ1oo" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
     </div>
-</article></body></html>
 
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms Zalizate)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/FE2AG8StEqQ" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Didier Basanga)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/OxhDSNvskUQ" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Nsiku Bob)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/yHW8kizb-Gw" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Nkiambi)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/6lJ3nhdFn0E" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Bitha Zindi)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/lpdaoun1UTA" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms Lesley)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/Mg9u9KdUqEg" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Mr Shukulu)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/wOYwDKcDqH8" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr>
+
+    <h2 class="story-title">Jivo Transforms Lives: A Patient’s Journey to Healing with Jivo (Ms Consolata)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/dlS2XEvRrn4" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+  </div>
+</article>
+</body>
+</html>
